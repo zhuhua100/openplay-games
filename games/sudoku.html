@@ -70,12 +70,12 @@
             <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
                 <a href="/" data-i18n="nav.home" class="hover:text-indigo-400">首页</a>
                 <span>/</span>
-                <a href="/categories/puzzle.html" class="hover:text-indigo-400">益智</a>
+                <a href="/categories/puzzle.html" class="hover:text-indigo-400 breadcrumb-category">益智</a>
                 <span>/</span>
-                <span class="text-white">数独 Sudoku</span>
+                <span class="text-white breadcrumb-title">数独 Sudoku</span>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">数独 Sudoku</h1>
-            <p class="text-gray-300 text-lg">数独是一款风靡全球的逻辑填数游戏。玩家需要在 9x9 的网格中填入数字 1-9，使得每行、每列和每个 3x3 的宫格内数字都不重复。游戏锻炼逻辑思维和专注力，是...</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2" id="game-title">数独 Sudoku</h1>
+            <p class="text-gray-300 text-lg game-short-desc">数独是一款风靡全球的逻辑填数游戏。玩家需要在 9x9 的网格中填入数字 1-9，使得每行、每列和每个 3x3 的宫格内数字都不重复。游戏锻炼逻辑思维和专注力，是...</p>
         </div>
     </section>
 
@@ -98,7 +98,7 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.intro">🎮 游戏介绍</h2>
-                        <div class="text-gray-300 leading-relaxed space-y-4">
+                        <div class="text-gray-300 leading-relaxed space-y-4" id="game-intro-content">
                             <p>数独（Sudoku）是一款风靡全球的逻辑填数游戏，其名称源自日语"数字は独身に限る"（数字必须唯一）的缩写。虽然名字是日文，但数独的现代形式实际上起源于 1979 年美国建筑师霍华德·加恩斯在《戴尔铅笔谜题》杂志上发表的"数字位置"谜题。1980 年代数独在日本流行起来，2004 年经《泰晤士报》等媒体推广后，迅速成为全球最受欢迎的智力游戏之一。</p>
                             <p>数独的规则简洁优雅：在 9×9 的网格中，玩家需要填入数字 1-9，使得每一行、每一列以及每个 3×3 的宫格（共 9 个）中的数字都不重复。游戏开始时，部分格子已经填有数字（称为"提示数"），玩家需要根据这些提示数，通过逻辑推理填满所有空格。</p>
                             <p>数独的魅力在于纯粹的逻辑之美。不需要数学计算，不需要语言能力，只需要专注和推理。一个设计精良的数独谜题应该只有一个唯一解，而且可以通过逻辑推理得出，不需要猜测。解题过程中，玩家会运用"唯一余数法"、"摒除法"、"区块排除法"等多种逻辑技巧，每一步推理都带来清晰的满足感。</p>
@@ -107,11 +107,11 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.controls">🎯 操作方法</h2>
-                        <p class="text-gray-300 leading-relaxed">点击空白格子，然后选择数字填入。每行、每列和每个 3x3 宫格中，数字 1-9 只能出现一次。游戏提供不同难度级别，从入门到专家。使用铅笔模式可以临时标记候选数字。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-controls-text">点击空白格子，然后选择数字填入。每行、每列和每个 3x3 宫格中，数字 1-9 只能出现一次。游戏提供不同难度级别，从入门到专家。使用铅笔模式可以临时标记候选数字。</p>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.reason">💡 推荐理由</h2>
-                        <p class="text-gray-300 leading-relaxed" data-i18n="game.reason.text" data-i18n-params='{"title": "数独 Sudoku"}'>数独 Sudoku 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-reason-text">数独 Sudoku 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
                     </div>
                 </div>
 
@@ -122,11 +122,11 @@
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.category">分类</span>
-                                <span class="text-indigo-300">益智</span>
+                                <span class="text-indigo-300" id="game-category-name">益智</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.author">作者</span>
-                                <span class="text-white">社区开源项目</span>
+                                <span class="text-white" id="game-author">社区开源项目</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.license">协议</span>
@@ -151,7 +151,7 @@
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
                         <h3 class="text-lg font-semibold mb-4" data-i18n="game.declaration">📢 声明</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game.declaration.text" data-i18n-params='{"author": "社区开源项目", "license": "MIT License", "link": "<a href=\"/about.html#dmca\" class=\"text-indigo-400 hover:underline\">联系我们</a>"}'>
+                        <p class="text-gray-400 text-sm leading-relaxed" id="game-declaration-text">
                             本游戏为开源项目，版权归原作者 社区开源项目 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
                         </p>
                     </div>
@@ -216,6 +216,78 @@
         const gameId = gamePage.replace('.html', '');
         const game = getGameById(gameId);
 
+        // 根据当前语言更新游戏内容
+        function updateGameContent() {
+            if (!game) return;
+            const lang = I18n.currentLang;
+            const isEn = lang === 'en';
+            
+            // 更新页面标题
+            document.title = (isEn ? game.titleEn : game.title) + ' - OpenPlay Games';
+            
+            // 更新 meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = isEn ? game.descriptionEn : game.description;
+            
+            // 更新面包屑和标题
+            const titleEl = document.querySelector('h1');
+            if (titleEl) titleEl.textContent = isEn ? game.titleEn : game.title;
+            
+            const breadcrumbCat = document.querySelector('.breadcrumb-category');
+            if (breadcrumbCat) breadcrumbCat.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            const breadcrumbTitle = document.querySelector('.breadcrumb-title');
+            if (breadcrumbTitle) breadcrumbTitle.textContent = isEn ? game.titleEn : game.title;
+            
+            const shortDesc = document.querySelector('.game-short-desc');
+            if (shortDesc) shortDesc.textContent = isEn ? game.descriptionEn : game.description;
+            
+            // 更新游戏介绍
+            const introDiv = document.getElementById('game-intro-content');
+            if (introDiv) {
+                const text = isEn ? game.longDescriptionEn : game.longDescription;
+                introDiv.innerHTML = text.split('\n\n').map(p => '<p>' + p.trim() + '</p>').join('\n');
+            }
+            
+            // 更新操作方法
+            const controlsP = document.getElementById('game-controls-text');
+            if (controlsP) controlsP.textContent = isEn ? game.instructionsEn : game.instructions;
+            
+            // 更新推荐理由
+            const reasonP = document.getElementById('game-reason-text');
+            if (reasonP) {
+                const title = isEn ? game.titleEn : game.title;
+                if (isEn) {
+                    reasonP.textContent = title + ' is a classic open-source HTML5 game with high-quality code and smooth performance, suitable for players of all ages. Whether you want to relax or challenge yourself, it offers an enjoyable gaming experience. As an open-source project, its code is also worth learning from.';
+                } else {
+                    reasonP.textContent = title + ' 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。';
+                }
+            }
+            
+            // 更新游戏信息卡片
+            const authorSpan = document.getElementById('game-author');
+            if (authorSpan) authorSpan.textContent = isEn && game.authorEn ? game.authorEn : game.author;
+            
+            const categorySpan = document.getElementById('game-category-name');
+            if (categorySpan) categorySpan.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            // 更新声明
+            const declP = document.getElementById('game-declaration-text');
+            if (declP) {
+                const author = isEn && game.authorEn ? game.authorEn : game.author;
+                if (isEn) {
+                    declP.innerHTML = 'This game is an open-source project, copyright belongs to ' + author + '. This site only collects and displays it, under ' + game.license + '. If your rights are infringed, please <a href="/about.html#dmca" class="text-indigo-400 hover:underline">contact us</a>.';
+                } else {
+                    declP.innerHTML = '本游戏为开源项目，版权归原作者 ' + author + ' 所有。本站仅作收录和展示，遵循 ' + game.license + ' 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。';
+                }
+            }
+        }
+
+        // 监听语言切换事件
+        document.addEventListener('languageChanged', function(e) {
+            updateGameContent();
+        });
+
         if (game) {
             // 渲染推荐同类游戏
             const relatedContainer = document.getElementById('related-games');
@@ -228,8 +300,10 @@
                     relatedContainer.innerHTML = otherGames.map(createGameCard).join('');
                 }
             }
+            
+            // 初始化游戏内容
+            updateGameContent();
         }
     </script>
     <script src="/js/main.js"></script>
 </body>
-</html>

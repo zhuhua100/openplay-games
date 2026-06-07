@@ -70,12 +70,12 @@
             <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
                 <a href="/" data-i18n="nav.home" class="hover:text-indigo-400">首页</a>
                 <span>/</span>
-                <a href="/categories/puzzle.html" class="hover:text-indigo-400">益智</a>
+                <a href="/categories/puzzle.html" class="hover:text-indigo-400 breadcrumb-category">益智</a>
                 <span>/</span>
-                <span class="text-white">2048</span>
+                <span class="text-white breadcrumb-title">2048</span>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">2048</h1>
-            <p class="text-gray-300 text-lg">2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。游戏规则简单但富有挑战性，是锻炼逻辑思维和策略规划...</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2" id="game-title">2048</h1>
+            <p class="text-gray-300 text-lg game-short-desc">2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。游戏规则简单但富有挑战性，是锻炼逻辑思维和策略规划...</p>
         </div>
     </section>
 
@@ -98,7 +98,7 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.intro">🎮 游戏介绍</h2>
-                        <div class="text-gray-300 leading-relaxed space-y-4">
+                        <div class="text-gray-300 leading-relaxed space-y-4" id="game-intro-content">
                             <p>2048 是由意大利开发者 Gabriele Cirulli 于 2014 年创作的一款开源数字益智游戏，发布后迅速风靡全球。游戏在一个 4×4 的网格上进行，玩家通过滑动操作让所有方块朝同一方向移动。每次移动后，相同数字的方块会合并为一个数字翻倍的方块，同时系统会在空白位置随机生成一个数字 2 或 4。</p>
                             <p>游戏的核心理念是"合并与倍增"——从 2 和 4 开始，逐步合并出 8、16、32、64、128、256、512、1024，最终目标是拼出 2048 方块。虽然听起来简单，但随着网格空间逐渐被填满，每一步操作都需要深思熟虑。玩家不仅要考虑当前合并的结果，还要预判后续几步的布局变化。</p>
                             <p>2048 的魅力在于其"易学难精"的特性。一局游戏通常只需几分钟，但想要达到 2048 甚至更高的分数，需要良好的空间规划能力和策略思维。许多玩家在尝试过程中逐渐掌握了"角落策略"——将最大的数字固定在某个角落，围绕它进行有序合并。</p>
@@ -107,11 +107,11 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.controls">🎯 操作方法</h2>
-                        <p class="text-gray-300 leading-relaxed">使用键盘方向键（↑↓←→）或滑动屏幕来移动所有方块。相同数字的方块碰撞后会合并为一个更大的数字。每次移动后会在空白位置随机生成一个 2 或 4。当所有格子被填满且无法继续合并时，游戏结束。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-controls-text">使用键盘方向键（↑↓←→）或滑动屏幕来移动所有方块。相同数字的方块碰撞后会合并为一个更大的数字。每次移动后会在空白位置随机生成一个 2 或 4。当所有格子被填满且无法继续合并时，游戏结束。</p>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.reason">💡 推荐理由</h2>
-                        <p class="text-gray-300 leading-relaxed" data-i18n="game.reason.text" data-i18n-params='{"title": "2048"}'>2048 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-reason-text">2048 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
                     </div>
                 </div>
 
@@ -122,11 +122,11 @@
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.category">分类</span>
-                                <span class="text-indigo-300">益智</span>
+                                <span class="text-indigo-300" id="game-category-name">益智</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.author">作者</span>
-                                <span class="text-white">Gabriele Cirulli</span>
+                                <span class="text-white" id="game-author">Gabriele Cirulli</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.license">协议</span>
@@ -151,7 +151,7 @@
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
                         <h3 class="text-lg font-semibold mb-4" data-i18n="game.declaration">📢 声明</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game.declaration.text" data-i18n-params='{"author": "Gabriele Cirulli", "license": "MIT License", "link": "<a href=\"/about.html#dmca\" class=\"text-indigo-400 hover:underline\">联系我们</a>"}'>
+                        <p class="text-gray-400 text-sm leading-relaxed" id="game-declaration-text">
                             本游戏为开源项目，版权归原作者 Gabriele Cirulli 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
                         </p>
                     </div>
@@ -216,6 +216,78 @@
         const gameId = gamePage.replace('.html', '');
         const game = getGameById(gameId);
 
+        // 根据当前语言更新游戏内容
+        function updateGameContent() {
+            if (!game) return;
+            const lang = I18n.currentLang;
+            const isEn = lang === 'en';
+            
+            // 更新页面标题
+            document.title = (isEn ? game.titleEn : game.title) + ' - OpenPlay Games';
+            
+            // 更新 meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = isEn ? game.descriptionEn : game.description;
+            
+            // 更新面包屑和标题
+            const titleEl = document.querySelector('h1');
+            if (titleEl) titleEl.textContent = isEn ? game.titleEn : game.title;
+            
+            const breadcrumbCat = document.querySelector('.breadcrumb-category');
+            if (breadcrumbCat) breadcrumbCat.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            const breadcrumbTitle = document.querySelector('.breadcrumb-title');
+            if (breadcrumbTitle) breadcrumbTitle.textContent = isEn ? game.titleEn : game.title;
+            
+            const shortDesc = document.querySelector('.game-short-desc');
+            if (shortDesc) shortDesc.textContent = isEn ? game.descriptionEn : game.description;
+            
+            // 更新游戏介绍
+            const introDiv = document.getElementById('game-intro-content');
+            if (introDiv) {
+                const text = isEn ? game.longDescriptionEn : game.longDescription;
+                introDiv.innerHTML = text.split('\n\n').map(p => '<p>' + p.trim() + '</p>').join('\n');
+            }
+            
+            // 更新操作方法
+            const controlsP = document.getElementById('game-controls-text');
+            if (controlsP) controlsP.textContent = isEn ? game.instructionsEn : game.instructions;
+            
+            // 更新推荐理由
+            const reasonP = document.getElementById('game-reason-text');
+            if (reasonP) {
+                const title = isEn ? game.titleEn : game.title;
+                if (isEn) {
+                    reasonP.textContent = title + ' is a classic open-source HTML5 game with high-quality code and smooth performance, suitable for players of all ages. Whether you want to relax or challenge yourself, it offers an enjoyable gaming experience. As an open-source project, its code is also worth learning from.';
+                } else {
+                    reasonP.textContent = title + ' 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。';
+                }
+            }
+            
+            // 更新游戏信息卡片
+            const authorSpan = document.getElementById('game-author');
+            if (authorSpan) authorSpan.textContent = isEn && game.authorEn ? game.authorEn : game.author;
+            
+            const categorySpan = document.getElementById('game-category-name');
+            if (categorySpan) categorySpan.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            // 更新声明
+            const declP = document.getElementById('game-declaration-text');
+            if (declP) {
+                const author = isEn && game.authorEn ? game.authorEn : game.author;
+                if (isEn) {
+                    declP.innerHTML = 'This game is an open-source project, copyright belongs to ' + author + '. This site only collects and displays it, under ' + game.license + '. If your rights are infringed, please <a href="/about.html#dmca" class="text-indigo-400 hover:underline">contact us</a>.';
+                } else {
+                    declP.innerHTML = '本游戏为开源项目，版权归原作者 ' + author + ' 所有。本站仅作收录和展示，遵循 ' + game.license + ' 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。';
+                }
+            }
+        }
+
+        // 监听语言切换事件
+        document.addEventListener('languageChanged', function(e) {
+            updateGameContent();
+        });
+
         if (game) {
             // 渲染推荐同类游戏
             const relatedContainer = document.getElementById('related-games');
@@ -228,8 +300,10 @@
                     relatedContainer.innerHTML = otherGames.map(createGameCard).join('');
                 }
             }
+            
+            // 初始化游戏内容
+            updateGameContent();
         }
     </script>
     <script src="/js/main.js"></script>
 </body>
-</html>

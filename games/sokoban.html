@@ -70,12 +70,12 @@
             <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
                 <a href="/" data-i18n="nav.home" class="hover:text-indigo-400">首页</a>
                 <span>/</span>
-                <a href="/categories/puzzle.html" class="hover:text-indigo-400">益智</a>
+                <a href="/categories/puzzle.html" class="hover:text-indigo-400 breadcrumb-category">益智</a>
                 <span>/</span>
-                <span class="text-white">推箱子 Sokoban</span>
+                <span class="text-white breadcrumb-title">推箱子 Sokoban</span>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">推箱子 Sokoban</h1>
-            <p class="text-gray-300 text-lg">推箱子是一款经典的益智解谜游戏，1981 年由日本游戏设计师今林宏行创作。玩家需要将关卡中的所有箱子推到指定的目标位置。游戏规则简单，但关卡设计精妙，需要玩家仔...</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2" id="game-title">推箱子 Sokoban</h1>
+            <p class="text-gray-300 text-lg game-short-desc">推箱子是一款经典的益智解谜游戏，1981 年由日本游戏设计师今林宏行创作。玩家需要将关卡中的所有箱子推到指定的目标位置。游戏规则简单，但关卡设计精妙，需要玩家仔...</p>
         </div>
     </section>
 
@@ -98,7 +98,7 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.intro">🎮 游戏介绍</h2>
-                        <div class="text-gray-300 leading-relaxed space-y-4">
+                        <div class="text-gray-300 leading-relaxed space-y-4" id="game-intro-content">
                             <p>推箱子（Sokoban）是 1981 年由日本游戏设计师今林宏行（Hiroyuki Imabayashi）创作的经典益智游戏，名字在日语中意为"仓库管理员"。作为史上最具影响力的解谜游戏之一，推箱子开创了"推箱子"这一游戏类型，至今仍有大量变体和衍生作品。</p>
                             <p>游戏的规则简单到一句话就能说清楚：玩家控制一个角色，在仓库中推动箱子，将所有箱子推到指定的目标位置即可过关。但简单规则之下，是极其精妙的关卡设计。每个关卡都像一个精心设计的谜题，玩家需要仔细规划推箱子的顺序和路线。一个错误的步骤可能导致箱子被推到死角，整个关卡无法完成，只能重新开始。</p>
                             <p>推箱子的核心挑战在于"规划"而非"操作"。玩家需要提前思考：先推哪个箱子？走哪条路线？会不会把自己困住？这种纯粹的脑力挑战让推箱子成为了锻炼逻辑思维和空间规划能力的绝佳工具。游戏中的关卡难度循序渐进，从最初几步就能解决的简单关卡，到需要数十步精心规划的复杂谜题，让玩家在不断挑战中获得成就感。</p>
@@ -107,11 +107,11 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.controls">🎯 操作方法</h2>
-                        <p class="text-gray-300 leading-relaxed">使用键盘方向键（↑↓←→）控制角色移动。将箱子推到目标位置（通常用特殊标记表示）。一次只能推一个箱子，不能拉箱子。将所有箱子推到目标位置即可过关。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-controls-text">使用键盘方向键（↑↓←→）控制角色移动。将箱子推到目标位置（通常用特殊标记表示）。一次只能推一个箱子，不能拉箱子。将所有箱子推到目标位置即可过关。</p>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.reason">💡 推荐理由</h2>
-                        <p class="text-gray-300 leading-relaxed" data-i18n="game.reason.text" data-i18n-params='{"title": "推箱子 Sokoban"}'>推箱子 Sokoban 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-reason-text">推箱子 Sokoban 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
                     </div>
                 </div>
 
@@ -122,11 +122,11 @@
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.category">分类</span>
-                                <span class="text-indigo-300">益智</span>
+                                <span class="text-indigo-300" id="game-category-name">益智</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.author">作者</span>
-                                <span class="text-white">社区开源项目</span>
+                                <span class="text-white" id="game-author">社区开源项目</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.license">协议</span>
@@ -151,7 +151,7 @@
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
                         <h3 class="text-lg font-semibold mb-4" data-i18n="game.declaration">📢 声明</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game.declaration.text" data-i18n-params='{"author": "社区开源项目", "license": "MIT License", "link": "<a href=\"/about.html#dmca\" class=\"text-indigo-400 hover:underline\">联系我们</a>"}'>
+                        <p class="text-gray-400 text-sm leading-relaxed" id="game-declaration-text">
                             本游戏为开源项目，版权归原作者 社区开源项目 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
                         </p>
                     </div>
@@ -216,6 +216,78 @@
         const gameId = gamePage.replace('.html', '');
         const game = getGameById(gameId);
 
+        // 根据当前语言更新游戏内容
+        function updateGameContent() {
+            if (!game) return;
+            const lang = I18n.currentLang;
+            const isEn = lang === 'en';
+            
+            // 更新页面标题
+            document.title = (isEn ? game.titleEn : game.title) + ' - OpenPlay Games';
+            
+            // 更新 meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = isEn ? game.descriptionEn : game.description;
+            
+            // 更新面包屑和标题
+            const titleEl = document.querySelector('h1');
+            if (titleEl) titleEl.textContent = isEn ? game.titleEn : game.title;
+            
+            const breadcrumbCat = document.querySelector('.breadcrumb-category');
+            if (breadcrumbCat) breadcrumbCat.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            const breadcrumbTitle = document.querySelector('.breadcrumb-title');
+            if (breadcrumbTitle) breadcrumbTitle.textContent = isEn ? game.titleEn : game.title;
+            
+            const shortDesc = document.querySelector('.game-short-desc');
+            if (shortDesc) shortDesc.textContent = isEn ? game.descriptionEn : game.description;
+            
+            // 更新游戏介绍
+            const introDiv = document.getElementById('game-intro-content');
+            if (introDiv) {
+                const text = isEn ? game.longDescriptionEn : game.longDescription;
+                introDiv.innerHTML = text.split('\n\n').map(p => '<p>' + p.trim() + '</p>').join('\n');
+            }
+            
+            // 更新操作方法
+            const controlsP = document.getElementById('game-controls-text');
+            if (controlsP) controlsP.textContent = isEn ? game.instructionsEn : game.instructions;
+            
+            // 更新推荐理由
+            const reasonP = document.getElementById('game-reason-text');
+            if (reasonP) {
+                const title = isEn ? game.titleEn : game.title;
+                if (isEn) {
+                    reasonP.textContent = title + ' is a classic open-source HTML5 game with high-quality code and smooth performance, suitable for players of all ages. Whether you want to relax or challenge yourself, it offers an enjoyable gaming experience. As an open-source project, its code is also worth learning from.';
+                } else {
+                    reasonP.textContent = title + ' 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。';
+                }
+            }
+            
+            // 更新游戏信息卡片
+            const authorSpan = document.getElementById('game-author');
+            if (authorSpan) authorSpan.textContent = isEn && game.authorEn ? game.authorEn : game.author;
+            
+            const categorySpan = document.getElementById('game-category-name');
+            if (categorySpan) categorySpan.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            // 更新声明
+            const declP = document.getElementById('game-declaration-text');
+            if (declP) {
+                const author = isEn && game.authorEn ? game.authorEn : game.author;
+                if (isEn) {
+                    declP.innerHTML = 'This game is an open-source project, copyright belongs to ' + author + '. This site only collects and displays it, under ' + game.license + '. If your rights are infringed, please <a href="/about.html#dmca" class="text-indigo-400 hover:underline">contact us</a>.';
+                } else {
+                    declP.innerHTML = '本游戏为开源项目，版权归原作者 ' + author + ' 所有。本站仅作收录和展示，遵循 ' + game.license + ' 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。';
+                }
+            }
+        }
+
+        // 监听语言切换事件
+        document.addEventListener('languageChanged', function(e) {
+            updateGameContent();
+        });
+
         if (game) {
             // 渲染推荐同类游戏
             const relatedContainer = document.getElementById('related-games');
@@ -228,8 +300,10 @@
                     relatedContainer.innerHTML = otherGames.map(createGameCard).join('');
                 }
             }
+            
+            // 初始化游戏内容
+            updateGameContent();
         }
     </script>
     <script src="/js/main.js"></script>
 </body>
-</html>

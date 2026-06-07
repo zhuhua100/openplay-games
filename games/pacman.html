@@ -70,12 +70,12 @@
             <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
                 <a href="/" data-i18n="nav.home" class="hover:text-indigo-400">首页</a>
                 <span>/</span>
-                <a href="/categories/arcade.html" class="hover:text-indigo-400">街机</a>
+                <a href="/categories/arcade.html" class="hover:text-indigo-400 breadcrumb-category">街机</a>
                 <span>/</span>
-                <span class="text-white">吃豆人 Pacman</span>
+                <span class="text-white breadcrumb-title">吃豆人 Pacman</span>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">吃豆人 Pacman</h1>
-            <p class="text-gray-300 text-lg">吃豆人是 1980 年由南梦宫公司发行的经典街机游戏，也是电子游戏史上最具标志性的角色之一。玩家控制吃豆人在迷宫中吃掉所有豆子，同时躲避四只幽灵的追捕。吃到能量...</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2" id="game-title">吃豆人 Pacman</h1>
+            <p class="text-gray-300 text-lg game-short-desc">吃豆人是 1980 年由南梦宫公司发行的经典街机游戏，也是电子游戏史上最具标志性的角色之一。玩家控制吃豆人在迷宫中吃掉所有豆子，同时躲避四只幽灵的追捕。吃到能量...</p>
         </div>
     </section>
 
@@ -98,7 +98,7 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.intro">🎮 游戏介绍</h2>
-                        <div class="text-gray-300 leading-relaxed space-y-4">
+                        <div class="text-gray-300 leading-relaxed space-y-4" id="game-intro-content">
                             <p>吃豆人（Pac-Man）是 1980 年由日本南梦宫公司发行的街机游戏，由岩谷彻设计，是电子游戏史上最具标志性和影响力的作品之一。吃豆人的诞生打破了当时街机厅被太空射击游戏垄断的局面，以其可爱的角色设计和创新的玩法吸引了大量女性玩家，将电子游戏的受众群体扩大到了前所未有的范围。</p>
                             <p>在吃豆人中，玩家控制一个黄色的圆形角色在迷宫中移动，吃掉所有散布在迷宫中的小豆子。同时，四只颜色各异的幽灵——布林奇（红色）、平奇（粉色）、英奇（蓝色）和克莱德（橙色）——会在迷宫中追逐吃豆人。迷宫四个角落有能量豆，吃下后幽灵会暂时变成蓝色并反向逃跑，此时吃豆人可以反过来吃掉它们获得额外分数。</p>
                             <p>吃豆人的游戏设计堪称教科书级别。迷宫布局经过精心设计，既有足够的空间让玩家闪转腾挪，又有狭窄的通道增加紧张感。四只幽灵各有不同的追逐策略：有的直接追击，有的包抄拦截，有的随机游走——这种差异化的 AI 设计让每一局游戏都充满变数。</p>
@@ -107,11 +107,11 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.controls">🎯 操作方法</h2>
-                        <p class="text-gray-300 leading-relaxed">使用键盘方向键（↑↓←→）控制吃豆人在迷宫中移动。吃掉所有豆子即可过关。蓝色能量豆可以让吃豆人暂时获得吃掉幽灵的能力。注意躲避幽灵，被幽灵碰到会失去一条命。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-controls-text">使用键盘方向键（↑↓←→）控制吃豆人在迷宫中移动。吃掉所有豆子即可过关。蓝色能量豆可以让吃豆人暂时获得吃掉幽灵的能力。注意躲避幽灵，被幽灵碰到会失去一条命。</p>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.reason">💡 推荐理由</h2>
-                        <p class="text-gray-300 leading-relaxed" data-i18n="game.reason.text" data-i18n-params='{"title": "吃豆人 Pacman"}'>吃豆人 Pacman 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-reason-text">吃豆人 Pacman 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
                     </div>
                 </div>
 
@@ -122,11 +122,11 @@
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.category">分类</span>
-                                <span class="text-indigo-300">街机</span>
+                                <span class="text-indigo-300" id="game-category-name">街机</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.author">作者</span>
-                                <span class="text-white">社区开源项目</span>
+                                <span class="text-white" id="game-author">社区开源项目</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.license">协议</span>
@@ -151,7 +151,7 @@
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
                         <h3 class="text-lg font-semibold mb-4" data-i18n="game.declaration">📢 声明</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game.declaration.text" data-i18n-params='{"author": "社区开源项目", "license": "MIT License", "link": "<a href=\"/about.html#dmca\" class=\"text-indigo-400 hover:underline\">联系我们</a>"}'>
+                        <p class="text-gray-400 text-sm leading-relaxed" id="game-declaration-text">
                             本游戏为开源项目，版权归原作者 社区开源项目 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
                         </p>
                     </div>
@@ -216,6 +216,78 @@
         const gameId = gamePage.replace('.html', '');
         const game = getGameById(gameId);
 
+        // 根据当前语言更新游戏内容
+        function updateGameContent() {
+            if (!game) return;
+            const lang = I18n.currentLang;
+            const isEn = lang === 'en';
+            
+            // 更新页面标题
+            document.title = (isEn ? game.titleEn : game.title) + ' - OpenPlay Games';
+            
+            // 更新 meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = isEn ? game.descriptionEn : game.description;
+            
+            // 更新面包屑和标题
+            const titleEl = document.querySelector('h1');
+            if (titleEl) titleEl.textContent = isEn ? game.titleEn : game.title;
+            
+            const breadcrumbCat = document.querySelector('.breadcrumb-category');
+            if (breadcrumbCat) breadcrumbCat.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            const breadcrumbTitle = document.querySelector('.breadcrumb-title');
+            if (breadcrumbTitle) breadcrumbTitle.textContent = isEn ? game.titleEn : game.title;
+            
+            const shortDesc = document.querySelector('.game-short-desc');
+            if (shortDesc) shortDesc.textContent = isEn ? game.descriptionEn : game.description;
+            
+            // 更新游戏介绍
+            const introDiv = document.getElementById('game-intro-content');
+            if (introDiv) {
+                const text = isEn ? game.longDescriptionEn : game.longDescription;
+                introDiv.innerHTML = text.split('\n\n').map(p => '<p>' + p.trim() + '</p>').join('\n');
+            }
+            
+            // 更新操作方法
+            const controlsP = document.getElementById('game-controls-text');
+            if (controlsP) controlsP.textContent = isEn ? game.instructionsEn : game.instructions;
+            
+            // 更新推荐理由
+            const reasonP = document.getElementById('game-reason-text');
+            if (reasonP) {
+                const title = isEn ? game.titleEn : game.title;
+                if (isEn) {
+                    reasonP.textContent = title + ' is a classic open-source HTML5 game with high-quality code and smooth performance, suitable for players of all ages. Whether you want to relax or challenge yourself, it offers an enjoyable gaming experience. As an open-source project, its code is also worth learning from.';
+                } else {
+                    reasonP.textContent = title + ' 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。';
+                }
+            }
+            
+            // 更新游戏信息卡片
+            const authorSpan = document.getElementById('game-author');
+            if (authorSpan) authorSpan.textContent = isEn && game.authorEn ? game.authorEn : game.author;
+            
+            const categorySpan = document.getElementById('game-category-name');
+            if (categorySpan) categorySpan.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            // 更新声明
+            const declP = document.getElementById('game-declaration-text');
+            if (declP) {
+                const author = isEn && game.authorEn ? game.authorEn : game.author;
+                if (isEn) {
+                    declP.innerHTML = 'This game is an open-source project, copyright belongs to ' + author + '. This site only collects and displays it, under ' + game.license + '. If your rights are infringed, please <a href="/about.html#dmca" class="text-indigo-400 hover:underline">contact us</a>.';
+                } else {
+                    declP.innerHTML = '本游戏为开源项目，版权归原作者 ' + author + ' 所有。本站仅作收录和展示，遵循 ' + game.license + ' 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。';
+                }
+            }
+        }
+
+        // 监听语言切换事件
+        document.addEventListener('languageChanged', function(e) {
+            updateGameContent();
+        });
+
         if (game) {
             // 渲染推荐同类游戏
             const relatedContainer = document.getElementById('related-games');
@@ -228,8 +300,10 @@
                     relatedContainer.innerHTML = otherGames.map(createGameCard).join('');
                 }
             }
+            
+            // 初始化游戏内容
+            updateGameContent();
         }
     </script>
     <script src="/js/main.js"></script>
 </body>
-</html>

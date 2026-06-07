@@ -1,14 +1,20 @@
-// OpenPlay Games - 游戏数据
+// OpenPlay Games - 游戏数据（中英双语）
 // 所有游戏均来自 GitHub 开源项目，遵循相应开源协议
 
 const games = [
     {
         id: '2048',
         title: '2048',
+        titleEn: '2048',
         category: 'puzzle',
         categoryName: '益智',
+        categoryNameEn: 'Puzzle',
         description: '2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。游戏规则简单但富有挑战性，是锻炼逻辑思维和策略规划能力的绝佳选择。',
+        descriptionEn: '2048 is a classic puzzle number-merging game. Slide tiles on a 4x4 grid, merge identical numbers, and ultimately create the 2048 tile. Simple rules but challenging gameplay.',
         instructions: '使用键盘方向键（↑↓←→）或滑动屏幕来移动所有方块。相同数字的方块碰撞后会合并为一个更大的数字。每次移动后会在空白位置随机生成一个 2 或 4。当所有格子被填满且无法继续合并时，游戏结束。',
+        instructionsEn: 'Use arrow keys (↑↓←→) or swipe to move all tiles. When two tiles with the same number touch, they merge into one. After each move, a new tile (2 or 4) appears in a random empty spot. Game over when the grid is full with no possible merges.',
+        longDescription: '2048 是由意大利开发者 Gabriele Cirulli 于 2014 年创作的一款开源数字益智游戏，发布后迅速风靡全球。游戏在一个 4×4 的网格上进行，玩家通过滑动操作让所有方块朝同一方向移动。每次移动后，相同数字的方块会合并为一个数字翻倍的方块，同时系统会在空白位置随机生成一个数字 2 或 4。\n\n游戏的核心理念是"合并与倍增"——从 2 和 4 开始，逐步合并出 8、16、32、64、128、256、512、1024，最终目标是拼出 2048 方块。虽然听起来简单，但随着网格空间逐渐被填满，每一步操作都需要深思熟虑。玩家不仅要考虑当前合并的结果，还要预判后续几步的布局变化。\n\n2048 的魅力在于其"易学难精"的特性。一局游戏通常只需几分钟，但想要达到 2048 甚至更高的分数，需要良好的空间规划能力和策略思维。许多玩家在尝试过程中逐渐掌握了"角落策略"——将最大的数字固定在某个角落，围绕它进行有序合并。\n\n作为一款纯前端 HTML5 游戏，2048 无需下载安装，打开浏览器即可畅玩。它支持键盘和触屏两种操作方式，在电脑和手机上都有出色的体验。游戏界面简洁美观，色彩搭配舒适，配合流畅的动画效果，让每一次合并都充满成就感。',
+        longDescriptionEn: '2048 was created by Italian developer Gabriele Cirulli in 2014 as an open-source number puzzle game, quickly becoming a global phenomenon. The game is played on a 4x4 grid where players slide tiles in four directions. After each move, identical numbered tiles merge into one with double the value, while a new tile (2 or 4) randomly appears in an empty spot.\n\nThe core concept is "merge and multiply" — starting from 2 and 4, gradually merging to create 8, 16, 32, 64, 128, 256, 512, 1024, with the ultimate goal of reaching the 2048 tile. While it sounds simple, as the grid fills up, every move requires careful consideration. Players must not only think about immediate merges but also anticipate how the layout will change in subsequent moves.\n\nThe beauty of 2048 lies in its "easy to learn, hard to master" nature. A typical game lasts just a few minutes, but reaching 2048 or higher scores demands excellent spatial planning and strategic thinking. Many players gradually develop the "corner strategy" — keeping the largest tile in one corner and building around it systematically.\n\nAs a pure front-end HTML5 game, 2048 requires no download or installation — just open your browser and play. It supports both keyboard and touch controls, offering excellent experiences on both desktop and mobile devices. The clean, beautiful interface with comfortable color schemes and smooth animations makes every merge satisfying.',
         author: 'Gabriele Cirulli',
         license: 'MIT License',
         githubUrl: 'https://github.com/gabrielecirulli/2048',
@@ -20,11 +26,18 @@ const games = [
     {
         id: 'tetris',
         title: '俄罗斯方块 Tetris',
+        titleEn: 'Tetris',
         category: 'puzzle',
         categoryName: '益智',
+        categoryNameEn: 'Puzzle',
         description: '俄罗斯方块是有史以来最经典的电子游戏之一。玩家需要操控下落的七种不同形状的方块，在矩形区域内排列成完整的水平线以消除得分。游戏节奏逐渐加快，考验玩家的反应速度和空间想象力。',
+        descriptionEn: 'Tetris is one of the most classic video games of all time. Players must arrange falling blocks of seven different shapes into complete horizontal lines to clear them and score points. The pace gradually increases, testing your reflexes and spatial awareness.',
         instructions: '使用键盘方向键控制：←→ 左右移动，↑ 旋转方块，↓ 加速下落。目标是在方块堆到顶部之前尽可能多地消除完整的行。每消除一行获得相应分数，同时消除的行数越多，单次得分越高。',
+        instructionsEn: 'Use arrow keys: ←→ to move left/right, ↑ to rotate, ↓ to soft drop. The goal is to clear as many complete lines as possible before the blocks stack to the top. More lines cleared at once means higher scores.',
+        longDescription: '俄罗斯方块（Tetris）是由苏联程序员阿列克谢·帕基特诺夫于 1984 年创造的电子游戏，被公认为史上最伟大、最具影响力的游戏之一。它的核心玩法简单到可以用一句话概括——让下落的方块组成完整的行——但其中蕴含的深度和魅力让无数玩家沉迷了整整四十年。\n\n游戏中会出现七种不同形状的方块，分别用字母 I、O、T、S、Z、J、L 来代表。每种方块由四个小正方形组成，玩家需要在下落过程中旋转和移动它们，使其在底部紧密排列。当一行被完全填满时，该行会被消除，上方的方块整体下落。游戏速度会随着等级提升而逐渐加快，对玩家的反应能力和空间想象力提出越来越高的要求。\n\n俄罗斯方块的经典玩法衍生出了丰富的策略体系。高手玩家会运用"T-spin"（T 型旋转）等高级技巧来获得额外分数，也会通过"完美清除"（一次消除四行）来快速提升等级。游戏还引入了"下一块预览"功能，让玩家可以提前规划方块的摆放位置。\n\n这款 HTML5 版本的俄罗斯方块忠实还原了经典玩法，同时加入了现代化的视觉风格和流畅的动画效果。无论是怀旧的老玩家，还是第一次接触的新玩家，都能在这款游戏中找到属于自己的乐趣。',
+        longDescriptionEn: 'Tetris was created by Soviet programmer Alexey Pajitnov in 1984 and is widely regarded as one of the greatest and most influential video games of all time. Its core gameplay can be summed up in one sentence — arrange falling blocks into complete lines — yet the depth and charm it contains has captivated players for over four decades.\n\nThe game features seven different block shapes, represented by the letters I, O, T, S, Z, J, and L. Each shape consists of four small squares. Players must rotate and move these blocks as they fall, fitting them together tightly at the bottom. When a horizontal line is completely filled, it is cleared and the blocks above drop down. The speed gradually increases as your level rises, demanding faster reflexes and better spatial reasoning.\n\nClassic Tetris gameplay has spawned a rich strategic system. Advanced players use techniques like "T-spin" to earn bonus points and "Tetris" (clearing four lines at once) to quickly advance levels. The "next piece preview" feature allows players to plan ahead.\n\nThis HTML5 version faithfully recreates the classic Tetris experience while adding modern visual styling and smooth animations. Whether you are a nostalgic veteran or a first-time player, you will find endless enjoyment in this timeless classic.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/primitive-tetris',
         iframeUrl: '/games/tetris/index.html',
@@ -35,11 +48,18 @@ const games = [
     {
         id: 'snake',
         title: '贪吃蛇 Snake',
+        titleEn: 'Snake',
         category: 'arcade',
         categoryName: '街机',
+        categoryNameEn: 'Arcade',
         description: '贪吃蛇是一款经典的街机游戏，也是手机游戏的鼻祖之一。玩家控制一条不断移动的蛇，在游戏区域内吃掉食物使其身体变长。游戏简单易上手，但随着蛇身变长，操控难度也随之增加。',
+        descriptionEn: 'Snake is a classic arcade game and one of the pioneers of mobile gaming. Control a constantly moving snake, eat food to make it grow longer. Easy to pick up, but increasingly challenging as the snake gets longer.',
         instructions: '使用键盘方向键（↑↓←→）控制蛇的移动方向。蛇不能撞到墙壁或自己的身体。每吃到一个食物，蛇身会增长一格，同时得分增加。游戏会随着蛇身变长而逐渐变得更具挑战性。',
+        instructionsEn: 'Use arrow keys (↑↓←→) to control the snake direction. The snake cannot hit walls or its own body. Each food eaten makes the snake grow one segment longer and increases your score. The game becomes more challenging as the snake grows.',
+        longDescription: '贪吃蛇（Snake）是电子游戏史上最古老的游戏之一，其起源可以追溯到 1976 年的街机游戏 Blockade。但真正让贪吃蛇家喻户晓的，是 1997 年诺基亚在 6110 手机上预装的 Snake 游戏——它成为了无数人手机游戏的启蒙之作，也奠定了贪吃蛇在游戏史上的经典地位。\n\n贪吃蛇的规则极其简单：控制一条蛇在封闭的游戏区域内移动，吃掉随机出现的食物，每吃到一个食物蛇身就会增长一格。游戏的目标是在蛇撞到墙壁或自己的身体之前，尽可能多地吃掉食物获得高分。随着蛇身不断变长，操控空间越来越小，难度呈指数级上升。\n\n这种"越玩越难"的机制是贪吃蛇最吸引人的地方。刚开始时蛇身很短，操作轻松自如；但随着分数增加，蛇身越来越长，玩家需要提前规划路线，避免陷入死胡同。高手玩家会采用"贴边游走"或"螺旋式"移动策略，在有限的空间内最大化生存时间。\n\n这款 HTML5 版本的贪吃蛇在保留经典玩法的基础上，加入了现代化的视觉设计。游戏界面采用深色主题，色彩鲜明，操作响应灵敏。支持键盘和触屏两种控制方式，在手机和电脑上都能获得流畅的游戏体验。无论是怀旧还是尝鲜，贪吃蛇都是一款值得一玩的经典之作。',
+        longDescriptionEn: 'Snake is one of the oldest games in video game history, with origins tracing back to the 1976 arcade game Blockade. But what truly made Snake a household name was Nokia pre-installing it on the 6110 phone in 1997 — it became countless people first mobile game and cemented Snake classic status in gaming history.\n\nThe rules of Snake are extremely simple: control a snake moving within a closed area, eat randomly appearing food to make it grow longer. The goal is to eat as much food as possible for a high score before the snake hits a wall or its own body. As the snake grows longer, the available space shrinks and difficulty increases exponentially.\n\nThis "gets harder as you play" mechanism is what makes Snake so addictive. Early on, the snake is short and easy to control; but as your score increases, the snake gets longer and you need to plan routes carefully to avoid getting trapped. Skilled players use "edge-hugging" or "spiral" movement strategies to maximize survival time in limited space.\n\nThis HTML5 version of Snake retains the classic gameplay while adding modern visual design. The dark-themed interface is visually striking, with responsive controls. Supporting both keyboard and touch input, it delivers a smooth experience on both mobile and desktop. Whether for nostalgia or a first try, Snake is a timeless classic worth playing.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/patorjk/JavaScript-Snake',
         iframeUrl: '/games/snake/index.html',
@@ -50,11 +70,18 @@ const games = [
     {
         id: 'minesweeper',
         title: '扫雷 Minesweeper',
+        titleEn: 'Minesweeper',
         category: 'puzzle',
         categoryName: '益智',
+        categoryNameEn: 'Puzzle',
         description: '扫雷是一款经典的逻辑推理游戏，曾是 Windows 系统的标配游戏。玩家需要在不踩雷的情况下，通过数字提示推断出所有地雷的位置。每一格数字表示其周围 8 格中地雷的数量，考验逻辑推理能力。',
+        descriptionEn: 'Minesweeper is a classic logic puzzle game that was once a staple of Windows systems. Players must deduce the locations of all mines using number clues without detonating any. Each number indicates how many mines are in the surrounding 8 cells.',
         instructions: '左键点击格子揭开它。如果揭开的是地雷则游戏结束。右键点击格子可以标记/取消标记地雷。数字表示周围 8 格中地雷的数量。通过逻辑推理找出所有地雷的位置即可获胜。',
+        instructionsEn: 'Left-click to reveal a cell. If it is a mine, game over. Right-click to flag/unflag a suspected mine. Numbers indicate how many mines are in the surrounding 8 cells. Use logic to find all mines and win.',
+        longDescription: '扫雷（Minesweeper）是微软 Windows 系统自 1990 年起内置的经典游戏，陪伴了无数电脑用户的成长。它的前身可以追溯到 1970 年代的早期计算机游戏，但真正让扫雷成为经典的，是它作为 Windows 标配游戏长达二十多年的历史。\n\n扫雷的玩法融合了逻辑推理和运气成分。游戏开始时，玩家面对一个被完全覆盖的网格，其中隐藏着一定数量的地雷。玩家需要左键点击格子揭开它——如果揭开的是地雷，游戏结束；如果揭开的是空白格，它会显示一个数字，表示周围八格中地雷的数量。通过分析这些数字，玩家可以推断出哪些格子是安全的，哪些格子藏有地雷。右键点击可以标记疑似地雷的位置。\n\n扫雷的精髓在于逻辑推理的过程。例如，如果一个数字 1 周围只有一个未揭开的格子，那么这个格子必定是地雷。更复杂的局面需要综合多个数字的信息进行推理。高手玩家甚至能通过"概率分析"在不确定的情况下做出最优选择。\n\n这款 HTML5 版本的扫雷提供了三种难度级别：初级（9x9 网格，10 颗雷）、中级（16x16 网格，40 颗雷）和高级（30x16 网格，99 颗雷）。游戏界面清晰，操作流畅，完美还原了经典扫雷的体验。',
+        longDescriptionEn: 'Minesweeper has been a staple of Microsoft Windows since 1990, accompanying countless computer users through their digital journeys. Its predecessors date back to early computer games of the 1970s, but what made Minesweeper a classic was its twenty-plus year history as a Windows built-in game.\n\nMinesweeper blends logic and luck. At the start, players face a completely covered grid hiding a certain number of mines. Left-click to reveal a cell — if it is a mine, game over; if it is empty, it shows a number indicating how many mines are in the surrounding eight cells. By analyzing these numbers, players can deduce which cells are safe and which contain mines. Right-click to flag suspected mine locations.\n\nThe essence of Minesweeper lies in logical deduction. For example, if a number 1 has only one unrevealed cell adjacent to it, that cell must be a mine. More complex situations require synthesizing information from multiple numbers. Expert players even use "probability analysis" to make optimal choices in uncertain situations.\n\nThis HTML5 version offers three difficulty levels: Beginner (9x9 grid, 10 mines), Intermediate (16x16 grid, 40 mines), and Advanced (30x16 grid, 99 mines). With a clean interface and smooth controls, it perfectly recreates the classic Minesweeper experience.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/minesweeper',
         iframeUrl: '/games/minesweeper/index.html',
@@ -65,11 +92,18 @@ const games = [
     {
         id: 'pong',
         title: '乒乓球 Pong',
+        titleEn: 'Pong',
         category: 'arcade',
         categoryName: '街机',
+        categoryNameEn: 'Arcade',
         description: 'Pong 是电子游戏史上最早的街机游戏之一，1972 年由 Atari 公司发布。游戏模拟了乒乓球比赛，玩家控制球拍击球，目标是让球越过对手的防线。简洁的画面和玩法奠定了电子游戏的基础。',
+        descriptionEn: 'Pong is one of the earliest arcade games in video game history, released by Atari in 1972. It simulates table tennis — players control paddles to hit a ball past their opponent. Its simple graphics and gameplay laid the foundation for the video game industry.',
         instructions: '使用键盘上下方向键（↑↓）控制右侧球拍移动。游戏支持双人模式，左侧玩家使用 W/S 键控制。先获得 5 分的玩家获胜。球的速度会随着回合增加而逐渐加快。',
+        instructionsEn: 'Use up/down arrow keys (↑↓) to control the right paddle. Two-player mode: left player uses W/S keys. First to score 5 points wins. Ball speed increases with each rally.',
+        longDescription: 'Pong（乒乓球）是电子游戏产业的奠基之作，由 Atari 公司的创始人诺兰·布什内尔和阿尔·奥尔康于 1972 年开发。它是第一款获得商业成功的街机游戏，标志着电子游戏从实验室走向大众市场的转折点。Pong 的诞生甚至催生了整个电子游戏产业，其历史意义无可替代。\n\nPong 的玩法极其简洁：屏幕中间是一个乒乓球，两侧各有一个球拍，玩家需要控制球拍上下移动，将球击回对方场地。如果球越过对方的球拍，你就得一分。先获得一定分数的玩家获胜。游戏的核心机制——球与球拍的碰撞角度、球速的逐渐加快——为后来的所有体育类电子游戏奠定了基础。\n\n尽管画面只有简单的白色线条和方块，Pong 却拥有令人上瘾的游戏性。双人对战时，双方需要预判球的轨迹，调整球拍位置，甚至运用"角度战术"让球以刁钻的角度飞向对手。这种面对面的竞技体验，在 1972 年来说是革命性的。\n\n这款 HTML5 版本的 Pong 忠实还原了经典玩法，同时支持单人（对战 AI）和双人两种模式。单人模式中，AI 对手会随着你的得分增加而变得更强；双人模式则适合与朋友一起享受竞技的乐趣。',
+        longDescriptionEn: 'Pong is the foundation of the video game industry, developed by Atari founders Nolan Bushnell and Al Alcorn in 1972. It was the first commercially successful arcade game, marking the turning point where video games moved from laboratories to the mass market. Pong creation essentially gave birth to the entire video game industry — its historical significance is unparalleled.\n\nPong gameplay is elegantly simple: a ball bounces between two paddles on either side of the screen. Players move their paddles up and down to hit the ball past their opponent. Score when the ball gets past your opponent paddle. First to reach the target score wins. The core mechanics — ball-paddle collision angles and gradually increasing speed — laid the groundwork for all future sports video games.\n\nDespite graphics consisting of simple white lines and blocks, Pong delivers addictive gameplay. In two-player mode, both players must predict the ball trajectory, position their paddles, and even use "angle tactics" to send the ball flying at tricky angles toward their opponent. This face-to-face competitive experience was revolutionary in 1972.\n\nThis HTML5 version faithfully recreates the classic gameplay with both single-player (vs AI) and two-player modes. In single-player mode, the AI opponent gets stronger as your score increases. Two-player mode is perfect for enjoying competitive fun with friends.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/pong',
         iframeUrl: '/games/pong/index.html',
@@ -80,11 +114,18 @@ const games = [
     {
         id: 'sokoban',
         title: '推箱子 Sokoban',
+        titleEn: 'Sokoban',
         category: 'puzzle',
         categoryName: '益智',
+        categoryNameEn: 'Puzzle',
         description: '推箱子是一款经典的益智解谜游戏，1981 年由日本游戏设计师今林宏行创作。玩家需要将关卡中的所有箱子推到指定的目标位置。游戏规则简单，但关卡设计精妙，需要玩家仔细规划每一步。',
+        descriptionEn: 'Sokoban is a classic puzzle game created by Japanese designer Hiroyuki Imabayashi in 1981. Players must push all boxes to designated target positions. Simple rules but clever level design requires careful planning of every move.',
         instructions: '使用键盘方向键（↑↓←→）控制角色移动。将箱子推到目标位置（通常用特殊标记表示）。一次只能推一个箱子，不能拉箱子。将所有箱子推到目标位置即可过关。',
+        instructionsEn: 'Use arrow keys (↑↓←→) to move the character. Push boxes to target positions (usually marked specially). You can only push one box at a time, and cannot pull them. Push all boxes to targets to complete the level.',
+        longDescription: '推箱子（Sokoban）是 1981 年由日本游戏设计师今林宏行（Hiroyuki Imabayashi）创作的经典益智游戏，名字在日语中意为"仓库管理员"。作为史上最具影响力的解谜游戏之一，推箱子开创了"推箱子"这一游戏类型，至今仍有大量变体和衍生作品。\n\n游戏的规则简单到一句话就能说清楚：玩家控制一个角色，在仓库中推动箱子，将所有箱子推到指定的目标位置即可过关。但简单规则之下，是极其精妙的关卡设计。每个关卡都像一个精心设计的谜题，玩家需要仔细规划推箱子的顺序和路线。一个错误的步骤可能导致箱子被推到死角，整个关卡无法完成，只能重新开始。\n\n推箱子的核心挑战在于"规划"而非"操作"。玩家需要提前思考：先推哪个箱子？走哪条路线？会不会把自己困住？这种纯粹的脑力挑战让推箱子成为了锻炼逻辑思维和空间规划能力的绝佳工具。\n\n这款 HTML5 版本的推箱子包含了多个精心设计的关卡，从入门到高级应有尽有。游戏界面简洁清晰，操作响应灵敏，支持撤销功能让你可以回溯到之前的步骤。',
+        longDescriptionEn: 'Sokoban is a classic puzzle game created by Japanese game designer Hiroyuki Imabayashi in 1981. The name means "warehouse manager" in Japanese. As one of the most influential puzzle games ever, Sokoban created the "box-pushing" genre, which still has countless variants and derivatives today.\n\nThe rules are simple enough to explain in one sentence: control a character pushing boxes in a warehouse, getting all boxes to designated target positions to clear the level. But beneath these simple rules lies incredibly clever level design. Each level is like a carefully crafted puzzle, requiring players to plan the order and route of pushing boxes. One wrong move can push a box into a corner, making the level impossible to complete and forcing a restart.\n\nThe core challenge of Sokoban is "planning" rather than "execution." Players must think ahead: which box to push first? Which route to take? Will I trap myself? This pure mental challenge makes Sokoban an excellent tool for developing logical thinking and spatial planning skills.\n\nThis HTML5 version includes multiple carefully designed levels ranging from beginner to advanced. The interface is clean and clear, controls are responsive, and an undo feature lets you backtrack your steps.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/sokoban',
         iframeUrl: '/games/sokoban/index.html',
@@ -95,11 +136,18 @@ const games = [
     {
         id: 'flappy-bird',
         title: 'Flappy Bird',
+        titleEn: 'Flappy Bird',
         category: 'arcade',
         categoryName: '街机',
+        categoryNameEn: 'Arcade',
         description: 'Flappy Bird 是 2013 年由越南开发者阮河东创作的现象级手机游戏。玩家通过点击屏幕控制小鸟飞行，穿越一系列管道障碍。游戏以极高的难度和令人上瘾的玩法闻名，是移动游戏史上的经典之作。',
+        descriptionEn: 'Flappy Bird is a phenomenon mobile game created by Vietnamese developer Dong Nguyen in 2013. Tap to make a bird fly through a series of pipe obstacles. Famous for its extreme difficulty and addictive gameplay.',
         instructions: '点击屏幕或按空格键让小鸟向上飞。松开后小鸟会自然下落。需要精准控制小鸟的高度，穿过管道之间的空隙。碰到管道或地面则游戏结束。每次游戏都会重新开始，挑战你的最高分。',
+        instructionsEn: 'Click/tap or press Space to make the bird fly upward. Release and the bird falls naturally. Precisely control the bird height to pass through gaps between pipes. Hitting a pipe or the ground ends the game. Each game is a fresh start — challenge your high score!',
+        longDescription: 'Flappy Bird 是 2013 年由越南独立开发者阮河东（Dong Nguyen）创作的现象级手机游戏，它的故事本身就是一段传奇。游戏于 2013 年 5 月上线 App Store，起初无人问津，但到了 2014 年初突然爆红，一度成为 App Store 下载量最高的免费游戏，日收入高达 5 万美元。然而在巅峰时期，阮河东却因承受不了巨大的舆论压力，主动将游戏下架，留下了游戏史上的一段佳话。\n\nFlappy Bird 的玩法简单到极致：点击屏幕让小鸟向上飞，松开后小鸟自然下落，玩家需要控制小鸟穿过一系列绿色管道之间的空隙。每穿过一个管道得一分。如果小鸟碰到管道或地面，游戏结束。就是这么简单的机制，却因为极高的难度和令人上瘾的"再来一次"效应，让全球玩家欲罢不能。\n\nFlappy Bird 的成功证明了"简单+困难"这一游戏设计公式的强大威力。游戏没有复杂的剧情、华丽的画面或丰富的玩法，只有一个像素风格的小鸟和不断出现的管道。但正是这种极简主义的设计，让玩家将全部注意力集中在操作上，每一次失败都让人忍不住立即重来。\n\n这款 HTML5 版本的 Flappy Bird 完美复刻了原版的玩法和手感。点击屏幕或按空格键控制小鸟飞行，穿越管道挑战你的最高分。',
+        longDescriptionEn: 'Flappy Bird is a phenomenon mobile game created by Vietnamese independent developer Dong Nguyen in 2013, and its story is legendary. Released on the App Store in May 2013, it went largely unnoticed until early 2014 when it suddenly exploded in popularity, becoming the most downloaded free game on the App Store with daily revenue reaching $50,000. Yet at the peak of its success, Nguyen could not handle the overwhelming pressure and voluntarily took the game down, leaving a legendary tale in gaming history.\n\nFlappy Bird gameplay is minimalistic: tap to make the bird fly upward, release to let it fall. Players must navigate the bird through gaps between green pipes. Each pipe passed earns one point. Hit a pipe or the ground, and the game ends. This simple mechanism, combined with extreme difficulty and the addictive "one more try" effect, captivated players worldwide.\n\nFlappy Bird success proved the power of the "simple + difficult" game design formula. No complex story, gorgeous graphics, or rich gameplay — just a pixel-art bird and endless pipes. But this minimalist design forces players to focus entirely on the controls, making every failure an irresistible invitation to try again.\n\nThis HTML5 version perfectly recreates the original gameplay and feel. Tap the screen or press Space to control the bird through pipes and challenge your high score.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/flappy-bird',
         iframeUrl: '/games/flappy-bird/index.html',
@@ -110,11 +158,18 @@ const games = [
     {
         id: 'pacman',
         title: '吃豆人 Pacman',
+        titleEn: 'Pac-Man',
         category: 'arcade',
         categoryName: '街机',
+        categoryNameEn: 'Arcade',
         description: '吃豆人是 1980 年由南梦宫公司发行的经典街机游戏，也是电子游戏史上最具标志性的角色之一。玩家控制吃豆人在迷宫中吃掉所有豆子，同时躲避四只幽灵的追捕。吃到能量豆后可以反过来吃掉幽灵。',
+        descriptionEn: 'Pac-Man is a classic arcade game released by Namco in 1980, featuring one of the most iconic characters in video game history. Navigate Pac-Man through a maze eating all dots while avoiding four ghosts. Power pellets let you turn the tables and eat ghosts.',
         instructions: '使用键盘方向键（↑↓←→）控制吃豆人在迷宫中移动。吃掉所有豆子即可过关。蓝色能量豆可以让吃豆人暂时获得吃掉幽灵的能力。注意躲避幽灵，被幽灵碰到会失去一条命。',
+        instructionsEn: 'Use arrow keys (↑↓←→) to move Pac-Man through the maze. Eat all dots to clear the level. Power pellets temporarily let Pac-Man eat ghosts. Avoid ghosts — touching one costs a life.',
+        longDescription: '吃豆人（Pac-Man）是 1980 年由日本南梦宫公司发行的街机游戏，由岩谷彻设计，是电子游戏史上最具标志性和影响力的作品之一。吃豆人的诞生打破了当时街机厅被太空射击游戏垄断的局面，以其可爱的角色设计和创新的玩法吸引了大量女性玩家，将电子游戏的受众群体扩大到了前所未有的范围。\n\n在吃豆人中，玩家控制一个黄色的圆形角色在迷宫中移动，吃掉所有散布在迷宫中的小豆子。同时，四只颜色各异的幽灵——布林奇（红色）、平奇（粉色）、英奇（蓝色）和克莱德（橙色）——会在迷宫中追逐吃豆人。迷宫四个角落有能量豆，吃下后幽灵会暂时变成蓝色并反向逃跑，此时吃豆人可以反过来吃掉它们获得额外分数。\n\n吃豆人的游戏设计堪称教科书级别。迷宫布局经过精心设计，既有足够的空间让玩家闪转腾挪，又有狭窄的通道增加紧张感。四只幽灵各有不同的追逐策略：有的直接追击，有的包抄拦截，有的随机游走——这种差异化的 AI 设计让每一局游戏都充满变数。\n\n这款 HTML5 版本的吃豆人忠实还原了经典街机版的玩法和关卡设计。像素风格的画面、熟悉的音效、流畅的操作，让你仿佛回到了 80 年代的街机厅。',
+        longDescriptionEn: 'Pac-Man is an arcade game released by Japanese company Namco in 1980, designed by Toru Iwatani. It is one of the most iconic and influential works in video game history. Pac-Man broke the monopoly of space shooter games in arcades, attracting a large number of female players with its cute character design and innovative gameplay, expanding the gaming audience to an unprecedented extent.\n\nIn Pac-Man, players control a yellow circular character moving through a maze, eating all the small dots scattered throughout. Meanwhile, four differently colored ghosts — Blinky (red), Pinky (pink), Inky (blue), and Clyde (orange) — chase Pac-Man through the maze. Power pellets located at the four corners of the maze temporarily turn ghosts blue and make them flee, allowing Pac-Man to eat them for bonus points.\n\nPac-Man game design is textbook-perfect. The maze layout is carefully designed with enough space for maneuvering while narrow corridors create tension. Each of the four ghosts has a different chasing strategy: some pursue directly, others flank and intercept, some wander randomly — this varied AI design makes every game unpredictable.\n\nThis HTML5 version faithfully recreates the classic arcade gameplay and level design. Pixel-art graphics, familiar sound effects, and smooth controls transport you back to the arcades of the 1980s.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/pacman',
         iframeUrl: '/games/pacman/index.html',
@@ -125,11 +180,18 @@ const games = [
     {
         id: 'sudoku',
         title: '数独 Sudoku',
+        titleEn: 'Sudoku',
         category: 'puzzle',
         categoryName: '益智',
+        categoryNameEn: 'Puzzle',
         description: '数独是一款风靡全球的逻辑填数游戏。玩家需要在 9x9 的网格中填入数字 1-9，使得每行、每列和每个 3x3 的宫格内数字都不重复。游戏锻炼逻辑思维和专注力，是经典的脑力训练游戏。',
+        descriptionEn: 'Sudoku is a globally popular logic-based number placement puzzle. Fill a 9x9 grid with digits 1-9 so that each row, column, and 3x3 box contains all digits without repetition. A classic brain-training game.',
         instructions: '点击空白格子，然后选择数字填入。每行、每列和每个 3x3 宫格中，数字 1-9 只能出现一次。游戏提供不同难度级别，从入门到专家。使用铅笔模式可以临时标记候选数字。',
+        instructionsEn: 'Click an empty cell, then select a number to fill it. Each row, column, and 3x3 box must contain digits 1-9 exactly once. Multiple difficulty levels from beginner to expert. Use pencil mode to mark candidate numbers.',
+        longDescription: '数独（Sudoku）是一款风靡全球的逻辑填数游戏，其名称源自日语"数字は独身に限る"（数字必须唯一）的缩写。虽然名字是日文，但数独的现代形式实际上起源于 1979 年美国建筑师霍华德·加恩斯在《戴尔铅笔谜题》杂志上发表的"数字位置"谜题。1980 年代数独在日本流行起来，2004 年经《泰晤士报》等媒体推广后，迅速成为全球最受欢迎的智力游戏之一。\n\n数独的规则简洁优雅：在 9x9 的网格中，玩家需要填入数字 1-9，使得每一行、每一列以及每个 3x3 的宫格（共 9 个）中的数字都不重复。游戏开始时，部分格子已经填有数字（称为"提示数"），玩家需要根据这些提示数，通过逻辑推理填满所有空格。\n\n数独的魅力在于纯粹的逻辑之美。不需要数学计算，不需要语言能力，只需要专注和推理。一个设计精良的数独谜题应该只有一个唯一解，而且可以通过逻辑推理得出，不需要猜测。\n\n这款 HTML5 版本的数独提供了从入门到专家多个难度级别，适合不同水平的玩家。游戏界面清晰舒适，支持数字输入和铅笔标记模式，让你可以像在纸上一样记录候选数字。无论是利用碎片时间放松大脑，还是进行深度的逻辑训练，数独都是绝佳的选择。',
+        longDescriptionEn: 'Sudoku is a globally popular logic-based number placement puzzle. The name comes from Japanese "Suuji wa dokushin ni kagiru" (numbers must be single). While the name is Japanese, the modern form of Sudoku actually originated from the "Number Place" puzzle published by American architect Howard Garns in Dell Pencil Puzzles magazine in 1979. Sudoku became popular in Japan in the 1980s, and after being promoted by The Times and other media in 2004, it quickly became one of the most popular puzzle games worldwide.\n\nThe rules of Sudoku are elegantly simple: fill a 9x9 grid with digits 1-9 so that each row, each column, and each of the nine 3x3 boxes contains all digits without repetition. At the start, some cells already contain numbers (called "givens"), and players must use logical deduction to fill in all remaining empty cells based on these clues.\n\nThe beauty of Sudoku lies in pure logic. No math calculations needed, no language skills required — just focus and reasoning. A well-designed Sudoku puzzle has exactly one unique solution that can be reached through logical deduction without guessing.\n\nThis HTML5 version offers multiple difficulty levels from beginner to expert. The clean interface supports number input and pencil mark mode, letting you record candidate numbers just like on paper. Whether for a quick mental break during spare moments or deep logical training, Sudoku is an excellent choice.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/sudoku',
         iframeUrl: '/games/sudoku/index.html',
@@ -140,11 +202,18 @@ const games = [
     {
         id: 'tic-tac-toe',
         title: '井字棋 Tic-Tac-Toe',
+        titleEn: 'Tic-Tac-Toe',
         category: 'strategy',
         categoryName: '策略',
+        categoryNameEn: 'Strategy',
         description: '井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线（横、竖、斜）的玩家获胜。',
+        descriptionEn: 'Tic-Tac-Toe is a timeless classic strategy game and often the first board game many people learn. Two players take turns marking X and O on a 3x3 grid. The first to get three in a row (horizontal, vertical, or diagonal) wins.',
         instructions: '点击网格中的空白位置放置你的棋子。先手玩家使用 X，后手玩家使用 O。先将三个棋子连成一条直线（横、竖或斜线）的玩家获胜。如果所有格子被填满且无人获胜，则为平局。',
+        instructionsEn: 'Click an empty cell on the grid to place your mark. First player uses X, second uses O. First to get three marks in a row (horizontal, vertical, or diagonal) wins. If all cells are filled with no winner, it is a draw.',
+        longDescription: '井字棋（Tic-Tac-Toe），又称三连棋或圈叉棋，是人类历史上最古老的游戏之一。考古学家在古罗马时期的遗迹中就发现了类似井字棋的棋盘刻痕。今天，井字棋仍然是全世界最普及的儿童游戏之一，也是许多人接触的第一款策略游戏。\n\n井字棋的规则极其简单：两名玩家轮流在 3x3 的网格中放置自己的标记（一方用 X，一方用 O），先将三个标记连成一条直线（横线、竖线或对角线）的玩家获胜。如果所有九个格子都被填满而无人连成一线，则为平局。\n\n尽管规则简单，井字棋却蕴含着深刻的博弈论原理。对于完美对局来说，井字棋是一个"平局游戏"——如果双方都采取最优策略，游戏必然以平局告终。但正是这种"简单中的复杂"让井字棋成为了解博弈论和人工智能的入门教材。先手玩家有优势，但如果后手玩家应对得当，先手也无法保证必胜。\n\n这款 HTML5 版本的井字棋支持玩家对战 AI 和双人对战两种模式。AI 模式中，电脑会分析棋盘局势做出最优选择，即使是成年人也很难战胜它。双人模式则适合与朋友或家人一起享受对弈的乐趣。',
+        longDescriptionEn: 'Tic-Tac-Toe, also known as noughts and crosses or Xs and Os, is one of the oldest games in human history. Archaeologists have found game board carvings resembling Tic-Tac-Toe in ancient Roman ruins. Today, it remains one of the most widely played children games worldwide and the first strategy game many people learn.\n\nThe rules are extremely simple: two players take turns placing their marks (one uses X, the other uses O) on a 3x3 grid. The first player to get three marks in a straight line (horizontal, vertical, or diagonal) wins. If all nine cells are filled with no winner, the game is a draw.\n\nDespite its simple rules, Tic-Tac-Toe contains profound game theory principles. In perfect play, Tic-Tac-Toe is a "draw game" — if both players use optimal strategies, the game will always end in a draw. But this "complexity within simplicity" makes Tic-Tac-Toe an excellent introduction to game theory and artificial intelligence. The first player has an advantage, but if the second player responds correctly, the first cannot guarantee a win.\n\nThis HTML5 version supports both player-vs-AI and two-player modes. In AI mode, the computer analyzes the board and makes optimal moves — even adults will find it challenging to beat. Two-player mode is perfect for enjoying the game with friends or family.',
         author: '社区开源项目',
+        authorEn: 'Open Source Community',
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/tic-tac-toe',
         iframeUrl: '/games/tic-tac-toe/index.html',
@@ -153,33 +222,3 @@ const games = [
         date: '2026-01-10'
     }
 ];
-
-// 按分类获取游戏
-function getGamesByCategory(category) {
-    return games.filter(game => game.category === category);
-}
-
-// 获取推荐游戏
-function getFeaturedGames() {
-    return games.filter(game => game.featured);
-}
-
-// 获取最新游戏（按日期排序）
-function getLatestGames() {
-    return [...games].sort((a, b) => new Date(b.date) - new Date(a.date));
-}
-
-// 搜索游戏
-function searchGames(query) {
-    const q = query.toLowerCase();
-    return games.filter(game => 
-        game.title.toLowerCase().includes(q) || 
-        game.description.toLowerCase().includes(q) ||
-        game.categoryName.includes(q)
-    );
-}
-
-// 获取游戏详情
-function getGameById(id) {
-    return games.find(game => game.id === id);
-}

@@ -70,12 +70,12 @@
             <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
                 <a href="/" data-i18n="nav.home" class="hover:text-indigo-400">首页</a>
                 <span>/</span>
-                <a href="/categories/puzzle.html" class="hover:text-indigo-400">益智</a>
+                <a href="/categories/puzzle.html" class="hover:text-indigo-400 breadcrumb-category">益智</a>
                 <span>/</span>
-                <span class="text-white">俄罗斯方块 Tetris</span>
+                <span class="text-white breadcrumb-title">俄罗斯方块 Tetris</span>
             </div>
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">俄罗斯方块 Tetris</h1>
-            <p class="text-gray-300 text-lg">俄罗斯方块是有史以来最经典的电子游戏之一。玩家需要操控下落的七种不同形状的方块，在矩形区域内排列成完整的水平线以消除得分。游戏节奏逐渐加快，考验玩家的反应速度和...</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2" id="game-title">俄罗斯方块 Tetris</h1>
+            <p class="text-gray-300 text-lg game-short-desc">俄罗斯方块是有史以来最经典的电子游戏之一。玩家需要操控下落的七种不同形状的方块，在矩形区域内排列成完整的水平线以消除得分。游戏节奏逐渐加快，考验玩家的反应速度和...</p>
         </div>
     </section>
 
@@ -98,7 +98,7 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.intro">🎮 游戏介绍</h2>
-                        <div class="text-gray-300 leading-relaxed space-y-4">
+                        <div class="text-gray-300 leading-relaxed space-y-4" id="game-intro-content">
                             <p>俄罗斯方块（Tetris）是由苏联程序员阿列克谢·帕基特诺夫于 1984 年创造的电子游戏，被公认为史上最伟大、最具影响力的游戏之一。它的核心玩法简单到可以用一句话概括——让下落的方块组成完整的行——但其中蕴含的深度和魅力让无数玩家沉迷了整整四十年。</p>
                             <p>游戏中会出现七种不同形状的方块，分别用字母 I、O、T、S、Z、J、L 来代表。每种方块由四个小正方形组成，玩家需要在下落过程中旋转和移动它们，使其在底部紧密排列。当一行被完全填满时，该行会被消除，上方的方块整体下落。游戏速度会随着等级提升而逐渐加快，对玩家的反应能力和空间想象力提出越来越高的要求。</p>
                             <p>俄罗斯方块的经典玩法衍生出了丰富的策略体系。高手玩家会运用"T-spin"（T 型旋转）等高级技巧来获得额外分数，也会通过"完美清除"（一次消除四行）来快速提升等级。游戏还引入了"下一块预览"功能，让玩家可以提前规划方块的摆放位置。</p>
@@ -107,11 +107,11 @@
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.controls">🎯 操作方法</h2>
-                        <p class="text-gray-300 leading-relaxed">使用键盘方向键控制：←→ 左右移动，↑ 旋转方块，↓ 加速下落。目标是在方块堆到顶部之前尽可能多地消除完整的行。每消除一行获得相应分数，同时消除的行数越多，单次得分越高。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-controls-text">使用键盘方向键控制：←→ 左右移动，↑ 旋转方块，↓ 加速下落。目标是在方块堆到顶部之前尽可能多地消除完整的行。每消除一行获得相应分数，同时消除的行数越多，单次得分越高。</p>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4" data-i18n="game.reason">💡 推荐理由</h2>
-                        <p class="text-gray-300 leading-relaxed" data-i18n="game.reason.text" data-i18n-params='{"title": "俄罗斯方块 Tetris"}'>俄罗斯方块 Tetris 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                        <p class="text-gray-300 leading-relaxed" id="game-reason-text">俄罗斯方块 Tetris 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
                     </div>
                 </div>
 
@@ -122,11 +122,11 @@
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.category">分类</span>
-                                <span class="text-indigo-300">益智</span>
+                                <span class="text-indigo-300" id="game-category-name">益智</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.author">作者</span>
-                                <span class="text-white">社区开源项目</span>
+                                <span class="text-white" id="game-author">社区开源项目</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-gray-400" data-i18n="game.license">协议</span>
@@ -151,7 +151,7 @@
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
                         <h3 class="text-lg font-semibold mb-4" data-i18n="game.declaration">📢 声明</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game.declaration.text" data-i18n-params='{"author": "社区开源项目", "license": "MIT License", "link": "<a href=\"/about.html#dmca\" class=\"text-indigo-400 hover:underline\">联系我们</a>"}'>
+                        <p class="text-gray-400 text-sm leading-relaxed" id="game-declaration-text">
                             本游戏为开源项目，版权归原作者 社区开源项目 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
                         </p>
                     </div>
@@ -216,6 +216,78 @@
         const gameId = gamePage.replace('.html', '');
         const game = getGameById(gameId);
 
+        // 根据当前语言更新游戏内容
+        function updateGameContent() {
+            if (!game) return;
+            const lang = I18n.currentLang;
+            const isEn = lang === 'en';
+            
+            // 更新页面标题
+            document.title = (isEn ? game.titleEn : game.title) + ' - OpenPlay Games';
+            
+            // 更新 meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.content = isEn ? game.descriptionEn : game.description;
+            
+            // 更新面包屑和标题
+            const titleEl = document.querySelector('h1');
+            if (titleEl) titleEl.textContent = isEn ? game.titleEn : game.title;
+            
+            const breadcrumbCat = document.querySelector('.breadcrumb-category');
+            if (breadcrumbCat) breadcrumbCat.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            const breadcrumbTitle = document.querySelector('.breadcrumb-title');
+            if (breadcrumbTitle) breadcrumbTitle.textContent = isEn ? game.titleEn : game.title;
+            
+            const shortDesc = document.querySelector('.game-short-desc');
+            if (shortDesc) shortDesc.textContent = isEn ? game.descriptionEn : game.description;
+            
+            // 更新游戏介绍
+            const introDiv = document.getElementById('game-intro-content');
+            if (introDiv) {
+                const text = isEn ? game.longDescriptionEn : game.longDescription;
+                introDiv.innerHTML = text.split('\n\n').map(p => '<p>' + p.trim() + '</p>').join('\n');
+            }
+            
+            // 更新操作方法
+            const controlsP = document.getElementById('game-controls-text');
+            if (controlsP) controlsP.textContent = isEn ? game.instructionsEn : game.instructions;
+            
+            // 更新推荐理由
+            const reasonP = document.getElementById('game-reason-text');
+            if (reasonP) {
+                const title = isEn ? game.titleEn : game.title;
+                if (isEn) {
+                    reasonP.textContent = title + ' is a classic open-source HTML5 game with high-quality code and smooth performance, suitable for players of all ages. Whether you want to relax or challenge yourself, it offers an enjoyable gaming experience. As an open-source project, its code is also worth learning from.';
+                } else {
+                    reasonP.textContent = title + ' 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。';
+                }
+            }
+            
+            // 更新游戏信息卡片
+            const authorSpan = document.getElementById('game-author');
+            if (authorSpan) authorSpan.textContent = isEn && game.authorEn ? game.authorEn : game.author;
+            
+            const categorySpan = document.getElementById('game-category-name');
+            if (categorySpan) categorySpan.textContent = isEn ? game.categoryNameEn : game.categoryName;
+            
+            // 更新声明
+            const declP = document.getElementById('game-declaration-text');
+            if (declP) {
+                const author = isEn && game.authorEn ? game.authorEn : game.author;
+                if (isEn) {
+                    declP.innerHTML = 'This game is an open-source project, copyright belongs to ' + author + '. This site only collects and displays it, under ' + game.license + '. If your rights are infringed, please <a href="/about.html#dmca" class="text-indigo-400 hover:underline">contact us</a>.';
+                } else {
+                    declP.innerHTML = '本游戏为开源项目，版权归原作者 ' + author + ' 所有。本站仅作收录和展示，遵循 ' + game.license + ' 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。';
+                }
+            }
+        }
+
+        // 监听语言切换事件
+        document.addEventListener('languageChanged', function(e) {
+            updateGameContent();
+        });
+
         if (game) {
             // 渲染推荐同类游戏
             const relatedContainer = document.getElementById('related-games');
@@ -228,8 +300,10 @@
                     relatedContainer.innerHTML = otherGames.map(createGameCard).join('');
                 }
             }
+            
+            // 初始化游戏内容
+            updateGameContent();
         }
     </script>
     <script src="/js/main.js"></script>
 </body>
-</html>
