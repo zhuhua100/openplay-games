@@ -6,27 +6,6 @@
     <title>井字棋 Tic-Tac-Toe - OpenPlay Games 在线玩</title>
     <meta name="description" content="井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线（横、竖、斜）的玩家获胜。...">
     <meta name="keywords" content="井字棋 Tic-Tac-Toe, HTML5游戏, 免费游戏, 在线游戏, 开源游戏">
-    <meta name="author" content="社区开源项目">
-    <meta property="og:title" content="井字棋 Tic-Tac-Toe - OpenPlay Games 在线玩">
-    <meta property="og:description" content="井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线的玩家获胜。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://openplay-games.pages.dev/games/tic-tac-toe.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoGame",
-        "name": "井字棋 Tic-Tac-Toe",
-        "description": "井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线的玩家获胜。",
-        "genre": ["Strategy", "策略"],
-        "author": {"@type": "Person", "name": "社区开源项目"},
-        "license": "MIT License",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        "operatingSystem": "Web Browser",
-        "applicationCategory": "Game",
-        "url": "https://openplay-games.pages.dev/games/tic-tac-toe.html"
-    }
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     <style>
@@ -112,7 +91,12 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4">🎮 游戏介绍</h2>
-                        <p class="text-gray-300 leading-relaxed">井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线（横、竖、斜）的玩家获胜。...</p>
+                        <div class="text-gray-300 leading-relaxed space-y-4">
+                            <p>井字棋（Tic-Tac-Toe），又称三连棋或圈叉棋，是人类历史上最古老的游戏之一。考古学家在古罗马时期的遗迹中就发现了类似井字棋的棋盘刻痕。今天，井字棋仍然是全世界最普及的儿童游戏之一，也是许多人接触的第一款策略游戏。</p>
+                            <p>井字棋的规则极其简单：两名玩家轮流在 3×3 的网格中放置自己的标记（一方用 X，一方用 O），先将三个标记连成一条直线（横线、竖线或对角线）的玩家获胜。如果所有九个格子都被填满而无人连成一线，则为平局。</p>
+                            <p>尽管规则简单，井字棋却蕴含着深刻的博弈论原理。对于完美对局来说，井字棋是一个"平局游戏"——如果双方都采取最优策略，游戏必然以平局告终。但正是这种"简单中的复杂"让井字棋成为了解博弈论和人工智能的入门教材。先手玩家有优势，但如果后手玩家应对得当，先手也无法保证必胜。</p>
+                            <p>这款 HTML5 版本的井字棋支持玩家对战 AI 和双人对战两种模式。AI 模式中，电脑会分析棋盘局势做出最优选择，即使是成年人也很难战胜它。双人模式则适合与朋友或家人一起享受对弈的乐趣。简洁的界面、流畅的操作、智能的 AI——这款井字棋虽然简单，但绝对值得一玩。</p>
+                        </div>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4">🎯 操作方法</h2>

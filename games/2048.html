@@ -6,34 +6,6 @@
     <title>2048 - OpenPlay Games 在线玩</title>
     <meta name="description" content="2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。游戏规则简单但富有挑战性，是锻炼逻辑思维和策略规划能力的绝佳选择。...">
     <meta name="keywords" content="2048, HTML5游戏, 免费游戏, 在线游戏, 开源游戏">
-    <meta name="author" content="Gabriele Cirulli">
-    <meta property="og:title" content="2048 - OpenPlay Games 在线玩">
-    <meta property="og:description" content="2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://openplay-games.pages.dev/games/2048.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoGame",
-        "name": "2048",
-        "description": "2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。",
-        "genre": ["Puzzle", "益智"],
-        "author": {
-            "@type": "Person",
-            "name": "Gabriele Cirulli"
-        },
-        "license": "MIT License",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "operatingSystem": "Web Browser",
-        "applicationCategory": "Game",
-        "url": "https://openplay-games.pages.dev/games/2048.html"
-    }
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     <style>
@@ -119,7 +91,12 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4">🎮 游戏介绍</h2>
-                        <p class="text-gray-300 leading-relaxed">2048 是一款经典的益智数字合并游戏。在 4x4 的网格上滑动方块，合并相同数字，最终拼出 2048 方块。游戏规则简单但富有挑战性，是锻炼逻辑思维和策略规划能力的绝佳选择。...</p>
+                        <div class="text-gray-300 leading-relaxed space-y-4">
+                            <p>2048 是由意大利开发者 Gabriele Cirulli 于 2014 年创作的一款开源数字益智游戏，发布后迅速风靡全球。游戏在一个 4×4 的网格上进行，玩家通过滑动操作让所有方块朝同一方向移动。每次移动后，相同数字的方块会合并为一个数字翻倍的方块，同时系统会在空白位置随机生成一个数字 2 或 4。</p>
+                            <p>游戏的核心理念是"合并与倍增"——从 2 和 4 开始，逐步合并出 8、16、32、64、128、256、512、1024，最终目标是拼出 2048 方块。虽然听起来简单，但随着网格空间逐渐被填满，每一步操作都需要深思熟虑。玩家不仅要考虑当前合并的结果，还要预判后续几步的布局变化。</p>
+                            <p>2048 的魅力在于其"易学难精"的特性。一局游戏通常只需几分钟，但想要达到 2048 甚至更高的分数，需要良好的空间规划能力和策略思维。许多玩家在尝试过程中逐渐掌握了"角落策略"——将最大的数字固定在某个角落，围绕它进行有序合并。</p>
+                            <p>作为一款纯前端 HTML5 游戏，2048 无需下载安装，打开浏览器即可畅玩。它支持键盘和触屏两种操作方式，在电脑和手机上都有出色的体验。游戏界面简洁美观，色彩搭配舒适，配合流畅的动画效果，让每一次合并都充满成就感。</p>
+                        </div>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4">🎯 操作方法</h2>

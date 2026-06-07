@@ -6,27 +6,6 @@
     <title>扫雷 Minesweeper - OpenPlay Games 在线玩</title>
     <meta name="description" content="扫雷是一款经典的逻辑推理游戏，曾是 Windows 系统的标配游戏。玩家需要在不踩雷的情况下，通过数字提示推断出所有地雷的位置。每一格数字表示其周围 8 格中地雷的数量，考验逻辑推理能力。...">
     <meta name="keywords" content="扫雷 Minesweeper, HTML5游戏, 免费游戏, 在线游戏, 开源游戏">
-    <meta name="author" content="社区开源项目">
-    <meta property="og:title" content="扫雷 Minesweeper - OpenPlay Games 在线玩">
-    <meta property="og:description" content="扫雷是一款经典的逻辑推理游戏，曾是 Windows 系统的标配游戏。玩家需要在不踩雷的情况下，通过数字提示推断出所有地雷的位置。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://openplay-games.pages.dev/games/minesweeper.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoGame",
-        "name": "扫雷 Minesweeper",
-        "description": "扫雷是一款经典的逻辑推理游戏，曾是 Windows 系统的标配游戏。玩家需要在不踩雷的情况下，通过数字提示推断出所有地雷的位置。",
-        "genre": ["Puzzle", "益智"],
-        "author": {"@type": "Person", "name": "社区开源项目"},
-        "license": "MIT License",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        "operatingSystem": "Web Browser",
-        "applicationCategory": "Game",
-        "url": "https://openplay-games.pages.dev/games/minesweeper.html"
-    }
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     <style>
@@ -112,7 +91,12 @@
                 <div class="lg:col-span-2 space-y-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4">🎮 游戏介绍</h2>
-                        <p class="text-gray-300 leading-relaxed">扫雷是一款经典的逻辑推理游戏，曾是 Windows 系统的标配游戏。玩家需要在不踩雷的情况下，通过数字提示推断出所有地雷的位置。每一格数字表示其周围 8 格中地雷的数量，考验逻辑推理能力。...</p>
+                        <div class="text-gray-300 leading-relaxed space-y-4">
+                            <p>扫雷（Minesweeper）是微软 Windows 系统自 1990 年起内置的经典游戏，陪伴了无数电脑用户的成长。它的前身可以追溯到 1970 年代的早期计算机游戏，但真正让扫雷成为经典的，是它作为 Windows 标配游戏长达二十多年的历史。</p>
+                            <p>扫雷的玩法融合了逻辑推理和运气成分。游戏开始时，玩家面对一个被完全覆盖的网格，其中隐藏着一定数量的地雷。玩家需要左键点击格子揭开它——如果揭开的是地雷，游戏结束；如果揭开的是空白格，它会显示一个数字，表示周围八格中地雷的数量。通过分析这些数字，玩家可以推断出哪些格子是安全的，哪些格子藏有地雷。右键点击可以标记疑似地雷的位置。</p>
+                            <p>扫雷的精髓在于逻辑推理的过程。例如，如果一个数字 1 周围只有一个未揭开的格子，那么这个格子必定是地雷。更复杂的局面需要综合多个数字的信息进行推理。高手玩家甚至能通过"概率分析"在不确定的情况下做出最优选择。</p>
+                            <p>这款 HTML5 版本的扫雷提供了三种难度级别：初级（9×9 网格，10 颗雷）、中级（16×16 网格，40 颗雷）和高级（30×16 网格，99 颗雷）。游戏界面清晰，操作流畅，完美还原了经典扫雷的体验。无论你是想打发时间，还是想锻炼逻辑思维能力，扫雷都是一个绝佳的选择。</p>
+                        </div>
                     </div>
                     <div>
                         <h2 class="text-2xl font-bold mb-4">🎯 操作方法</h2>
