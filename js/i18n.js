@@ -88,7 +88,11 @@ const I18n = {
 
         // 更新 HTML lang 属性
         document.documentElement.lang = this.currentLang === 'zh' ? 'zh-CN' : 'en';
+
+        // 派发语言变更事件，通知其他模块（如游戏详情页）更新内容
+        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: this.currentLang } }));
     },
+
 
     // 切换语言
     async switchLang(lang) {
