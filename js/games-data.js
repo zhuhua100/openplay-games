@@ -13,7 +13,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/gabrielecirulli/2048',
         iframeUrl: '/games/2048/index.html',
-        imageUrl: 'https://raw.githubusercontent.com/gabrielecirulli/2048/master/meta/apple-touch-icon.png',
+        imageUrl: '/images/2048.svg',
         featured: true,
         date: '2026-01-01'
     },
@@ -28,7 +28,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/primitive-tetris',
         iframeUrl: '/games/tetris/index.html',
-        imageUrl: '',
+        imageUrl: '/images/tetris.svg',
         featured: true,
         date: '2026-01-02'
     },
@@ -43,7 +43,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/patorjk/JavaScript-Snake',
         iframeUrl: '/games/snake/index.html',
-        imageUrl: '',
+        imageUrl: '/images/snake.svg',
         featured: true,
         date: '2026-01-03'
     },
@@ -58,7 +58,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/minesweeper',
         iframeUrl: '/games/minesweeper/index.html',
-        imageUrl: '',
+        imageUrl: '/images/minesweeper.svg',
         featured: false,
         date: '2026-01-04'
     },
@@ -73,7 +73,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/pong',
         iframeUrl: '/games/pong/index.html',
-        imageUrl: '',
+        imageUrl: '/images/pong.svg',
         featured: false,
         date: '2026-01-05'
     },
@@ -88,7 +88,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/sokoban',
         iframeUrl: '/games/sokoban/index.html',
-        imageUrl: '',
+        imageUrl: '/images/sokoban.svg',
         featured: false,
         date: '2026-01-06'
     },
@@ -103,7 +103,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/flappy-bird',
         iframeUrl: '/games/flappy-bird/index.html',
-        imageUrl: '',
+        imageUrl: '/images/flappy-bird.svg',
         featured: true,
         date: '2026-01-07'
     },
@@ -118,7 +118,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/pacman',
         iframeUrl: '/games/pacman/index.html',
-        imageUrl: '',
+        imageUrl: '/images/pacman.svg',
         featured: true,
         date: '2026-01-08'
     },
@@ -133,7 +133,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/sudoku',
         iframeUrl: '/games/sudoku/index.html',
-        imageUrl: '',
+        imageUrl: '/images/sudoku.svg',
         featured: false,
         date: '2026-01-09'
     },
@@ -148,7 +148,7 @@ const games = [
         license: 'MIT License',
         githubUrl: 'https://github.com/nicbarker/tic-tac-toe',
         iframeUrl: '/games/tic-tac-toe/index.html',
-        imageUrl: '',
+        imageUrl: '/images/tic-tac-toe.svg',
         featured: false,
         date: '2026-01-10'
     }
