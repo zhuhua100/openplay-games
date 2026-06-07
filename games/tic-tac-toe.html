@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>井字棋 Tic-Tac-Toe - OpenPlay Games 在线玩</title>
+    <meta name="description" content="井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线（横、竖、斜）的玩家获胜。...">
+    <meta name="keywords" content="井字棋 Tic-Tac-Toe, HTML5游戏, 免费游戏, 在线游戏, 开源游戏">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    <style>
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        .game-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .game-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .hero-gradient { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a2e; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-950/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl">🎮</span>
+                    <a href="/" class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="text-gray-300 hover:text-white transition">首页</a>
+                    <a href="/categories/puzzle.html" class="text-gray-300 hover:text-white transition">益智</a>
+                    <a href="/categories/arcade.html" class="text-gray-300 hover:text-white transition">街机</a>
+                    <a href="/categories/relax.html" class="text-gray-300 hover:text-white transition">休闲</a>
+                    <a href="/categories/strategy.html" class="text-gray-300 hover:text-white transition">策略</a>
+                    <a href="/categories/retro.html" class="text-gray-300 hover:text-white transition">复古</a>
+                    <a href="/about.html" class="text-gray-300 hover:text-white transition">关于</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800">
+            <div class="px-4 py-3 space-y-2">
+                <a href="/" class="block text-gray-300 py-2">首页</a>
+                <a href="/categories/puzzle.html" class="block text-gray-300 py-2">益智</a>
+                <a href="/categories/arcade.html" class="block text-gray-300 py-2">街机</a>
+                <a href="/categories/relax.html" class="block text-gray-300 py-2">休闲</a>
+                <a href="/categories/strategy.html" class="block text-gray-300 py-2">策略</a>
+                <a href="/categories/retro.html" class="block text-gray-300 py-2">复古</a>
+                <a href="/about.html" class="block text-gray-300 py-2">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 游戏详情 -->
+    <section class="hero-gradient pt-24 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
+                <a href="/" class="hover:text-indigo-400">首页</a>
+                <span>/</span>
+                <a href="/categories/strategy.html" class="hover:text-indigo-400">策略</a>
+                <span>/</span>
+                <span class="text-white">井字棋 Tic-Tac-Toe</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">井字棋 Tic-Tac-Toe</h1>
+            <p class="text-gray-300 text-lg">井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线（横、竖、斜）的玩...</p>
+        </div>
+    </section>
+
+    <!-- 游戏 iframe 区域 -->
+    <section class="px-4 -mt-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-2xl">
+                <div class="aspect-[4/3] w-full">
+                    <iframe src="/games/tic-tac-toe/index.html" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏信息 -->
+    <section class="py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- 左侧：游戏介绍 -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">🎮 游戏介绍</h2>
+                        <p class="text-gray-300 leading-relaxed">井字棋是一款历史悠久的经典策略游戏，也是许多人接触的第一款棋类游戏。两名玩家轮流在 3x3 的网格中标记 X 和 O，先将三个标记连成一条直线（横、竖、斜）的玩家获胜。...</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">🎯 操作方法</h2>
+                        <p class="text-gray-300 leading-relaxed">点击网格中的空白位置放置你的棋子。先手玩家使用 X，后手玩家使用 O。先将三个棋子连成一条直线（横、竖或斜线）的玩家获胜。如果所有格子被填满且无人获胜，则为平局。</p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4">💡 推荐理由</h2>
+                        <p class="text-gray-300 leading-relaxed">井字棋 Tic-Tac-Toe 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                    </div>
+                </div>
+
+                <!-- 右侧：游戏信息卡片 -->
+                <div class="space-y-6">
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">📋 游戏信息</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">分类</span>
+                                <span class="text-indigo-300">策略</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">作者</span>
+                                <span class="text-white">社区开源项目</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">协议</span>
+                                <span class="text-green-300">MIT License</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">平台</span>
+                                <span class="text-white">Web / 移动端</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">🔗 链接</h3>
+                        <div class="space-y-3">
+                            <a href="https://github.com/nicbarker/tic-tac-toe" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-300 hover:text-indigo-400 transition">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <span>GitHub 源码</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+                        <h3 class="text-lg font-semibold mb-4">📢 声明</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            本游戏为开源项目，版权归原作者 社区开源项目 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐同类游戏 -->
+    <section class="py-12 px-4 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8">🎯 推荐同类游戏</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="related-games">
+                <!-- 由 JS 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl">🎮</span>
+                        <span class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="/" class="hover:text-indigo-400 transition">首页</a></li>
+                        <li><a href="/about.html" class="hover:text-indigo-400 transition">关于我们</a></li>
+                        <li><a href="/about.html#dmca" class="hover:text-indigo-400 transition">DMCA</a></li>
+                        <li><a href="/about.html#privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">游戏分类</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="/categories/puzzle.html" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
+                        <li><a href="/categories/arcade.html" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
+                        <li><a href="/categories/relax.html" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
+                        <li><a href="/categories/strategy.html" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
+                        <li><a href="/categories/retro.html" class="hover:text-indigo-400 transition">复古 Retro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/games-data.js"></script>
+    <script>
+        // 获取当前游戏 ID（从 URL 中提取）
+        const pathParts = window.location.pathname.split('/');
+        const gamePage = pathParts[pathParts.length - 1];
+        const gameId = gamePage.replace('.html', '');
+        const game = getGameById(gameId);
+
+        if (game) {
+            // 渲染推荐同类游戏
+            const relatedContainer = document.getElementById('related-games');
+            if (relatedContainer) {
+                const sameCategory = getGamesByCategory(game.category).filter(g => g.id !== game.id);
+                if (sameCategory.length > 0) {
+                    relatedContainer.innerHTML = sameCategory.map(createGameCard).join('');
+                } else {
+                    const otherGames = games.filter(g => g.id !== game.id).slice(0, 4);
+                    relatedContainer.innerHTML = otherGames.map(createGameCard).join('');
+                }
+            }
+        }
+    </script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
