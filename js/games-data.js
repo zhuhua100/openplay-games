@@ -222,3 +222,43 @@ const games = [
         date: '2026-01-10'
     }
 ];
+
+// ========== 辅助函数 ==========
+
+// 获取所有游戏
+function getAllGames() {
+    return games;
+}
+
+// 根据 ID 获取游戏
+function getGameById(id) {
+    return games.find(g => g.id === id);
+}
+
+// 根据分类获取游戏
+function getGamesByCategory(category) {
+    return games.filter(g => g.category === category);
+}
+
+// 获取推荐游戏
+function getFeaturedGames() {
+    return games.filter(g => g.featured);
+}
+
+// 获取最新游戏（按日期排序）
+function getLatestGames() {
+    return [...games].sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+// 搜索游戏
+function searchGames(query) {
+    const q = query.toLowerCase();
+    return games.filter(g => 
+        g.title.toLowerCase().includes(q) || 
+        g.titleEn.toLowerCase().includes(q) ||
+        g.description.toLowerCase().includes(q) || 
+        g.descriptionEn.toLowerCase().includes(q) ||
+        g.categoryName.toLowerCase().includes(q) || 
+        g.categoryNameEn.toLowerCase().includes(q)
+    );
+}
