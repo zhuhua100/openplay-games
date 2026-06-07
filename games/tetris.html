@@ -18,6 +18,8 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a2e; }
         ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        .lang-btn { transition: all 0.2s ease; }
+        .lang-btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
@@ -31,13 +33,15 @@
                     <a href="/" class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/" class="text-gray-300 hover:text-white transition">首页</a>
-                    <a href="/categories/puzzle.html" class="text-gray-300 hover:text-white transition">益智</a>
-                    <a href="/categories/arcade.html" class="text-gray-300 hover:text-white transition">街机</a>
-                    <a href="/categories/relax.html" class="text-gray-300 hover:text-white transition">休闲</a>
-                    <a href="/categories/strategy.html" class="text-gray-300 hover:text-white transition">策略</a>
-                    <a href="/categories/retro.html" class="text-gray-300 hover:text-white transition">复古</a>
-                    <a href="/about.html" class="text-gray-300 hover:text-white transition">关于</a>
+                    <a href="/" data-i18n="nav.home" class="text-gray-300 hover:text-white transition">首页</a>
+                    <a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="text-gray-300 hover:text-white transition">益智</a>
+                    <a href="/categories/arcade.html" data-i18n="nav.arcade" class="text-gray-300 hover:text-white transition">街机</a>
+                    <a href="/categories/relax.html" data-i18n="nav.relax" class="text-gray-300 hover:text-white transition">休闲</a>
+                    <a href="/categories/strategy.html" data-i18n="nav.strategy" class="text-gray-300 hover:text-white transition">策略</a>
+                    <a href="/categories/retro.html" data-i18n="nav.retro" class="text-gray-300 hover:text-white transition">复古</a>
+                    <a href="/about.html" data-i18n="nav.about" class="text-gray-300 hover:text-white transition">关于</a>
+                    <!-- 语言切换按钮 -->
+                    <button id="lang-switch-btn" onclick="I18n.switchLang(I18n.currentLang === 'zh' ? 'en' : 'zh')" class="lang-btn px-3 py-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-600/40 text-sm font-medium">EN</button>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,13 +52,14 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800">
             <div class="px-4 py-3 space-y-2">
-                <a href="/" class="block text-gray-300 py-2">首页</a>
-                <a href="/categories/puzzle.html" class="block text-gray-300 py-2">益智</a>
-                <a href="/categories/arcade.html" class="block text-gray-300 py-2">街机</a>
-                <a href="/categories/relax.html" class="block text-gray-300 py-2">休闲</a>
-                <a href="/categories/strategy.html" class="block text-gray-300 py-2">策略</a>
-                <a href="/categories/retro.html" class="block text-gray-300 py-2">复古</a>
-                <a href="/about.html" class="block text-gray-300 py-2">关于</a>
+                <a href="/" data-i18n="nav.home" class="block text-gray-300 py-2">首页</a>
+                <a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="block text-gray-300 py-2">益智</a>
+                <a href="/categories/arcade.html" data-i18n="nav.arcade" class="block text-gray-300 py-2">街机</a>
+                <a href="/categories/relax.html" data-i18n="nav.relax" class="block text-gray-300 py-2">休闲</a>
+                <a href="/categories/strategy.html" data-i18n="nav.strategy" class="block text-gray-300 py-2">策略</a>
+                <a href="/categories/retro.html" data-i18n="nav.retro" class="block text-gray-300 py-2">复古</a>
+                <a href="/about.html" data-i18n="nav.about" class="block text-gray-300 py-2">关于</a>
+                <button id="lang-switch-btn-mobile" onclick="I18n.switchLang(I18n.currentLang === 'zh' ? 'en' : 'zh')" class="w-full text-left px-3 py-2 rounded-lg bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-sm font-medium mt-2">EN</button>
             </div>
         </div>
     </nav>
@@ -63,7 +68,7 @@
     <section class="hero-gradient pt-24 pb-8 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center space-x-2 text-sm text-gray-400 mb-4">
-                <a href="/" class="hover:text-indigo-400">首页</a>
+                <a href="/" data-i18n="nav.home" class="hover:text-indigo-400">首页</a>
                 <span>/</span>
                 <a href="/categories/puzzle.html" class="hover:text-indigo-400">益智</a>
                 <span>/</span>
@@ -92,7 +97,7 @@
                 <!-- 左侧：游戏介绍 -->
                 <div class="lg:col-span-2 space-y-8">
                     <div>
-                        <h2 class="text-2xl font-bold mb-4">🎮 游戏介绍</h2>
+                        <h2 class="text-2xl font-bold mb-4" data-i18n="game.intro">🎮 游戏介绍</h2>
                         <div class="text-gray-300 leading-relaxed space-y-4">
                             <p>俄罗斯方块（Tetris）是由苏联程序员阿列克谢·帕基特诺夫于 1984 年创造的电子游戏，被公认为史上最伟大、最具影响力的游戏之一。它的核心玩法简单到可以用一句话概括——让下落的方块组成完整的行——但其中蕴含的深度和魅力让无数玩家沉迷了整整四十年。</p>
                             <p>游戏中会出现七种不同形状的方块，分别用字母 I、O、T、S、Z、J、L 来代表。每种方块由四个小正方形组成，玩家需要在下落过程中旋转和移动它们，使其在底部紧密排列。当一行被完全填满时，该行会被消除，上方的方块整体下落。游戏速度会随着等级提升而逐渐加快，对玩家的反应能力和空间想象力提出越来越高的要求。</p>
@@ -101,52 +106,52 @@
                         </div>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold mb-4">🎯 操作方法</h2>
+                        <h2 class="text-2xl font-bold mb-4" data-i18n="game.controls">🎯 操作方法</h2>
                         <p class="text-gray-300 leading-relaxed">使用键盘方向键控制：←→ 左右移动，↑ 旋转方块，↓ 加速下落。目标是在方块堆到顶部之前尽可能多地消除完整的行。每消除一行获得相应分数，同时消除的行数越多，单次得分越高。</p>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold mb-4">💡 推荐理由</h2>
-                        <p class="text-gray-300 leading-relaxed">俄罗斯方块 Tetris 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
+                        <h2 class="text-2xl font-bold mb-4" data-i18n="game.reason">💡 推荐理由</h2>
+                        <p class="text-gray-300 leading-relaxed" data-i18n="game.reason.text" data-i18n-params='{"title": "俄罗斯方块 Tetris"}'>俄罗斯方块 Tetris 是一款经典的开源 HTML5 游戏，代码质量高、运行流畅，适合所有年龄段的玩家。无论是休闲放松还是挑战自我，都能带来愉快的游戏体验。作为开源项目，它的代码也值得开发者学习和参考。</p>
                     </div>
                 </div>
 
                 <!-- 右侧：游戏信息卡片 -->
                 <div class="space-y-6">
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                        <h3 class="text-lg font-semibold mb-4">📋 游戏信息</h3>
+                        <h3 class="text-lg font-semibold mb-4" data-i18n="game.info">📋 游戏信息</h3>
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
-                                <span class="text-gray-400">分类</span>
+                                <span class="text-gray-400" data-i18n="game.category">分类</span>
                                 <span class="text-indigo-300">益智</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-gray-400">作者</span>
+                                <span class="text-gray-400" data-i18n="game.author">作者</span>
                                 <span class="text-white">社区开源项目</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-gray-400">协议</span>
+                                <span class="text-gray-400" data-i18n="game.license">协议</span>
                                 <span class="text-green-300">MIT License</span>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-gray-400">平台</span>
+                                <span class="text-gray-400" data-i18n="game.platform">平台</span>
                                 <span class="text-white">Web / 移动端</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                        <h3 class="text-lg font-semibold mb-4">🔗 链接</h3>
+                        <h3 class="text-lg font-semibold mb-4" data-i18n="game.links">🔗 链接</h3>
                         <div class="space-y-3">
                             <a href="https://github.com/nicbarker/primitive-tetris" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-gray-300 hover:text-indigo-400 transition">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                <span>GitHub 源码</span>
+                                <span data-i18n="game.github">GitHub 源码</span>
                             </a>
                         </div>
                     </div>
 
                     <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                        <h3 class="text-lg font-semibold mb-4">📢 声明</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
+                        <h3 class="text-lg font-semibold mb-4" data-i18n="game.declaration">📢 声明</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="game.declaration.text" data-i18n-params='{"author": "社区开源项目", "license": "MIT License", "link": "<a href=\"/about.html#dmca\" class=\"text-indigo-400 hover:underline\">联系我们</a>"}'>
                             本游戏为开源项目，版权归原作者 社区开源项目 所有。本站仅作收录和展示，遵循 MIT License 协议。如侵犯了您的权益，请<a href="/about.html#dmca" class="text-indigo-400 hover:underline">联系我们</a>。
                         </p>
                     </div>
@@ -158,7 +163,7 @@
     <!-- 推荐同类游戏 -->
     <section class="py-12 px-4 bg-gray-900/50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8">🎯 推荐同类游戏</h2>
+            <h2 class="text-2xl font-bold mb-8" data-i18n="section.related">🎯 推荐同类游戏</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="related-games">
                 <!-- 由 JS 动态生成 -->
             </div>
@@ -174,35 +179,36 @@
                         <span class="text-2xl">🎮</span>
                         <span class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</span>
                     </div>
-                    <p class="text-gray-400 text-sm">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
+                    <p class="text-gray-400 text-sm" data-i18n="footer.desc">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.quicklinks">快速链接</h3>
                     <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="/" class="hover:text-indigo-400 transition">首页</a></li>
-                        <li><a href="/about.html" class="hover:text-indigo-400 transition">关于我们</a></li>
+                        <li><a href="/" data-i18n="footer.home" class="hover:text-indigo-400 transition">首页</a></li>
+                        <li><a href="/about.html" data-i18n="footer.about" class="hover:text-indigo-400 transition">关于我们</a></li>
                         <li><a href="/about.html#dmca" class="hover:text-indigo-400 transition">DMCA</a></li>
-                        <li><a href="/about.html#privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
+                        <li><a href="/about.html#privacy" data-i18n="footer.privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">游戏分类</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.categories">游戏分类</h3>
                     <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="/categories/puzzle.html" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
-                        <li><a href="/categories/arcade.html" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
-                        <li><a href="/categories/relax.html" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
-                        <li><a href="/categories/strategy.html" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
-                        <li><a href="/categories/retro.html" class="hover:text-indigo-400 transition">复古 Retro</a></li>
+                        <li><a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
+                        <li><a href="/categories/arcade.html" data-i18n="nav.arcade" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
+                        <li><a href="/categories/relax.html" data-i18n="nav.relax" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
+                        <li><a href="/categories/strategy.html" data-i18n="nav.strategy" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
+                        <li><a href="/categories/retro.html" data-i18n="nav.retro" class="hover:text-indigo-400 transition">复古 Retro</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
             </div>
         </div>
     </footer>
 
     <script src="/js/games-data.js"></script>
+    <script src="/js/i18n.js"></script>
     <script>
         // 获取当前游戏 ID（从 URL 中提取）
         const pathParts = window.location.pathname.split('/');

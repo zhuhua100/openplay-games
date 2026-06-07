@@ -21,6 +21,8 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a2e; }
         ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        .lang-btn { transition: all 0.2s ease; }
+        .lang-btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
@@ -34,13 +36,15 @@
                     <a href="/" class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/" class="text-indigo-400 font-medium">首页</a>
-                    <a href="/categories/puzzle.html" class="text-gray-300 hover:text-white transition">益智</a>
-                    <a href="/categories/arcade.html" class="text-gray-300 hover:text-white transition">街机</a>
-                    <a href="/categories/relax.html" class="text-gray-300 hover:text-white transition">休闲</a>
-                    <a href="/categories/strategy.html" class="text-gray-300 hover:text-white transition">策略</a>
-                    <a href="/categories/retro.html" class="text-gray-300 hover:text-white transition">复古</a>
-                    <a href="/about.html" class="text-gray-300 hover:text-white transition">关于</a>
+                    <a href="/" data-i18n="nav.home" class="text-indigo-400 font-medium">首页</a>
+                    <a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="text-gray-300 hover:text-white transition">益智</a>
+                    <a href="/categories/arcade.html" data-i18n="nav.arcade" class="text-gray-300 hover:text-white transition">街机</a>
+                    <a href="/categories/relax.html" data-i18n="nav.relax" class="text-gray-300 hover:text-white transition">休闲</a>
+                    <a href="/categories/strategy.html" data-i18n="nav.strategy" class="text-gray-300 hover:text-white transition">策略</a>
+                    <a href="/categories/retro.html" data-i18n="nav.retro" class="text-gray-300 hover:text-white transition">复古</a>
+                    <a href="/about.html" data-i18n="nav.about" class="text-gray-300 hover:text-white transition">关于</a>
+                    <!-- 语言切换按钮 -->
+                    <button id="lang-switch-btn" onclick="I18n.switchLang(I18n.currentLang === 'zh' ? 'en' : 'zh')" class="lang-btn px-3 py-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-600/40 text-sm font-medium">EN</button>
                 </div>
                 <!-- 移动端菜单按钮 -->
                 <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
@@ -53,13 +57,14 @@
         <!-- 移动端菜单 -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800">
             <div class="px-4 py-3 space-y-2">
-                <a href="/" class="block text-indigo-400 font-medium py-2">首页</a>
-                <a href="/categories/puzzle.html" class="block text-gray-300 py-2">益智</a>
-                <a href="/categories/arcade.html" class="block text-gray-300 py-2">街机</a>
-                <a href="/categories/relax.html" class="block text-gray-300 py-2">休闲</a>
-                <a href="/categories/strategy.html" class="block text-gray-300 py-2">策略</a>
-                <a href="/categories/retro.html" class="block text-gray-300 py-2">复古</a>
-                <a href="/about.html" class="block text-gray-300 py-2">关于</a>
+                <a href="/" data-i18n="nav.home" class="block text-indigo-400 font-medium py-2">首页</a>
+                <a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="block text-gray-300 py-2">益智</a>
+                <a href="/categories/arcade.html" data-i18n="nav.arcade" class="block text-gray-300 py-2">街机</a>
+                <a href="/categories/relax.html" data-i18n="nav.relax" class="block text-gray-300 py-2">休闲</a>
+                <a href="/categories/strategy.html" data-i18n="nav.strategy" class="block text-gray-300 py-2">策略</a>
+                <a href="/categories/retro.html" data-i18n="nav.retro" class="block text-gray-300 py-2">复古</a>
+                <a href="/about.html" data-i18n="nav.about" class="block text-gray-300 py-2">关于</a>
+                <button id="lang-switch-btn-mobile" onclick="I18n.switchLang(I18n.currentLang === 'zh' ? 'en' : 'zh')" class="w-full text-left px-3 py-2 rounded-lg bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-sm font-medium mt-2">EN</button>
             </div>
         </div>
     </nav>
@@ -68,15 +73,15 @@
     <section class="hero-gradient pt-24 pb-16 px-4">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                发现开源
-                <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">HTML5 小游戏</span>
+                <span data-i18n="hero.title">发现开源</span>
+                <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent" data-i18n="hero.title.highlight">HTML5 小游戏</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-i18n="hero.subtitle">
                 免费、开源、无需下载。精选 GitHub 上的优质 HTML5 游戏，在线即玩。
             </p>
             <!-- 搜索框 -->
             <div class="max-w-xl mx-auto relative">
-                <input type="text" id="search-input" placeholder="搜索游戏..." class="search-box w-full px-6 py-4 rounded-xl bg-gray-800/80 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 text-lg">
+                <input type="text" id="search-input" data-i18n="hero.search.placeholder" placeholder="搜索游戏..." class="search-box w-full px-6 py-4 rounded-xl bg-gray-800/80 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 text-lg">
                 <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -89,13 +94,13 @@
     <!-- 分类区域 -->
     <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8 text-center">游戏分类</h2>
+            <h2 class="text-2xl font-bold mb-8 text-center" data-i18n="category.title">游戏分类</h2>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="/categories/puzzle.html" class="category-tag px-6 py-3 rounded-full bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-600/40">🧩 益智 Puzzle</a>
-                <a href="/categories/arcade.html" class="category-tag px-6 py-3 rounded-full bg-green-600/20 border border-green-500/30 text-green-300 hover:bg-green-600/40">🎯 街机 Arcade</a>
-                <a href="/categories/relax.html" class="category-tag px-6 py-3 rounded-full bg-yellow-600/20 border border-yellow-500/30 text-yellow-300 hover:bg-yellow-600/40">🌿 休闲 Relax</a>
-                <a href="/categories/strategy.html" class="category-tag px-6 py-3 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-300 hover:bg-purple-600/40">♟️ 策略 Strategy</a>
-                <a href="/categories/retro.html" class="category-tag px-6 py-3 rounded-full bg-red-600/20 border border-red-500/30 text-red-300 hover:bg-red-600/40">🕹️ 复古 Retro</a>
+                <a href="/categories/puzzle.html" data-i18n="category.puzzle" class="category-tag px-6 py-3 rounded-full bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-600/40">🧩 益智 Puzzle</a>
+                <a href="/categories/arcade.html" data-i18n="category.arcade" class="category-tag px-6 py-3 rounded-full bg-green-600/20 border border-green-500/30 text-green-300 hover:bg-green-600/40">🎯 街机 Arcade</a>
+                <a href="/categories/relax.html" data-i18n="category.relax" class="category-tag px-6 py-3 rounded-full bg-yellow-600/20 border border-yellow-500/30 text-yellow-300 hover:bg-yellow-600/40">🌿 休闲 Relax</a>
+                <a href="/categories/strategy.html" data-i18n="category.strategy" class="category-tag px-6 py-3 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-300 hover:bg-purple-600/40">♟️ 策略 Strategy</a>
+                <a href="/categories/retro.html" data-i18n="category.retro" class="category-tag px-6 py-3 rounded-full bg-red-600/20 border border-red-500/30 text-red-300 hover:bg-red-600/40">🕹️ 复古 Retro</a>
             </div>
         </div>
     </section>
@@ -103,7 +108,7 @@
     <!-- 推荐游戏 -->
     <section class="py-12 px-4 bg-gray-900/50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8">⭐ 推荐游戏</h2>
+            <h2 class="text-2xl font-bold mb-8" data-i18n="section.featured">⭐ 推荐游戏</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="featured-games">
                 <!-- 游戏卡片由 JS 动态生成 -->
             </div>
@@ -113,7 +118,7 @@
     <!-- 最新游戏 -->
     <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8">🆕 最新游戏</h2>
+            <h2 class="text-2xl font-bold mb-8" data-i18n="section.latest">🆕 最新游戏</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="latest-games">
                 <!-- 游戏卡片由 JS 动态生成 -->
             </div>
@@ -129,35 +134,36 @@
                         <span class="text-2xl">🎮</span>
                         <span class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</span>
                     </div>
-                    <p class="text-gray-400 text-sm">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
+                    <p class="text-gray-400 text-sm" data-i18n="footer.desc">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.quicklinks">快速链接</h3>
                     <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="/" class="hover:text-indigo-400 transition">首页</a></li>
-                        <li><a href="/about.html" class="hover:text-indigo-400 transition">关于我们</a></li>
+                        <li><a href="/" data-i18n="footer.home" class="hover:text-indigo-400 transition">首页</a></li>
+                        <li><a href="/about.html" data-i18n="footer.about" class="hover:text-indigo-400 transition">关于我们</a></li>
                         <li><a href="/about.html#dmca" class="hover:text-indigo-400 transition">DMCA</a></li>
-                        <li><a href="/about.html#privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
+                        <li><a href="/about.html#privacy" data-i18n="footer.privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">游戏分类</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.categories">游戏分类</h3>
                     <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="/categories/puzzle.html" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
-                        <li><a href="/categories/arcade.html" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
-                        <li><a href="/categories/relax.html" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
-                        <li><a href="/categories/strategy.html" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
-                        <li><a href="/categories/retro.html" class="hover:text-indigo-400 transition">复古 Retro</a></li>
+                        <li><a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
+                        <li><a href="/categories/arcade.html" data-i18n="nav.arcade" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
+                        <li><a href="/categories/relax.html" data-i18n="nav.relax" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
+                        <li><a href="/categories/strategy.html" data-i18n="nav.strategy" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
+                        <li><a href="/categories/retro.html" data-i18n="nav.retro" class="hover:text-indigo-400 transition">复古 Retro</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
             </div>
         </div>
     </footer>
 
     <script src="/js/games-data.js"></script>
+    <script src="/js/i18n.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于 OpenPlay Games - 开源 HTML5 小游戏平台</title>
+    <title data-i18n="about.title">关于 OpenPlay Games - 开源 HTML5 小游戏平台</title>
     <meta name="description" content="OpenPlay Games 是一个开源 HTML5 小游戏发现平台，致力于收录 GitHub 上的优质开源游戏项目。了解我们的使命、开源声明和联系方式。">
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b5e5e5e5e5e5e5e5"}'></script>
@@ -15,6 +15,8 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a2e; }
         ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        .lang-btn { transition: all 0.2s ease; }
+        .lang-btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-gray-950 text-white min-h-screen">
@@ -28,13 +30,14 @@
                     <a href="/" class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="/" class="text-gray-300 hover:text-white transition">首页</a>
-                    <a href="/categories/puzzle.html" class="text-gray-300 hover:text-white transition">益智</a>
-                    <a href="/categories/arcade.html" class="text-gray-300 hover:text-white transition">街机</a>
-                    <a href="/categories/relax.html" class="text-gray-300 hover:text-white transition">休闲</a>
-                    <a href="/categories/strategy.html" class="text-gray-300 hover:text-white transition">策略</a>
-                    <a href="/categories/retro.html" class="text-gray-300 hover:text-white transition">复古</a>
-                    <a href="/about.html" class="text-indigo-400 font-medium">关于</a>
+                    <a href="/" data-i18n="nav.home" class="text-gray-300 hover:text-white transition">首页</a>
+                    <a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="text-gray-300 hover:text-white transition">益智</a>
+                    <a href="/categories/arcade.html" data-i18n="nav.arcade" class="text-gray-300 hover:text-white transition">街机</a>
+                    <a href="/categories/relax.html" data-i18n="nav.relax" class="text-gray-300 hover:text-white transition">休闲</a>
+                    <a href="/categories/strategy.html" data-i18n="nav.strategy" class="text-gray-300 hover:text-white transition">策略</a>
+                    <a href="/categories/retro.html" data-i18n="nav.retro" class="text-gray-300 hover:text-white transition">复古</a>
+                    <a href="/about.html" data-i18n="nav.about" class="text-indigo-400 font-medium">关于</a>
+                    <button id="lang-switch-btn" onclick="I18n.switchLang(I18n.currentLang === 'zh' ? 'en' : 'zh')" class="lang-btn px-3 py-1.5 rounded-lg bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-600/40 text-sm font-medium">EN</button>
                 </div>
                 <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,13 +48,14 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800">
             <div class="px-4 py-3 space-y-2">
-                <a href="/" class="block text-gray-300 py-2">首页</a>
-                <a href="/categories/puzzle.html" class="block text-gray-300 py-2">益智</a>
-                <a href="/categories/arcade.html" class="block text-gray-300 py-2">街机</a>
-                <a href="/categories/relax.html" class="block text-gray-300 py-2">休闲</a>
-                <a href="/categories/strategy.html" class="block text-gray-300 py-2">策略</a>
-                <a href="/categories/retro.html" class="block text-gray-300 py-2">复古</a>
-                <a href="/about.html" class="block text-indigo-400 font-medium py-2">关于</a>
+                <a href="/" data-i18n="nav.home" class="block text-gray-300 py-2">首页</a>
+                <a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="block text-gray-300 py-2">益智</a>
+                <a href="/categories/arcade.html" data-i18n="nav.arcade" class="block text-gray-300 py-2">街机</a>
+                <a href="/categories/relax.html" data-i18n="nav.relax" class="block text-gray-300 py-2">休闲</a>
+                <a href="/categories/strategy.html" data-i18n="nav.strategy" class="block text-gray-300 py-2">策略</a>
+                <a href="/categories/retro.html" data-i18n="nav.retro" class="block text-gray-300 py-2">复古</a>
+                <a href="/about.html" data-i18n="nav.about" class="block text-indigo-400 font-medium py-2">关于</a>
+                <button id="lang-switch-btn-mobile" onclick="I18n.switchLang(I18n.currentLang === 'zh' ? 'en' : 'zh')" class="w-full text-left px-3 py-2 rounded-lg bg-indigo-600/20 border border-indigo-500/30 text-indigo-300 text-sm font-medium mt-2">EN</button>
             </div>
         </div>
     </nav>
@@ -59,8 +63,8 @@
     <!-- Hero -->
     <section class="hero-gradient pt-24 pb-16 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">关于 OpenPlay Games</h1>
-            <p class="text-xl text-gray-300">一个开源 HTML5 小游戏发现平台</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-i18n="about.title">关于 OpenPlay Games</h1>
+            <p class="text-xl text-gray-300" data-i18n="about.subtitle">一个开源 HTML5 小游戏发现平台</p>
         </div>
     </section>
 
@@ -70,15 +74,15 @@
 
             <!-- 网站介绍 -->
             <div>
-                <h2 class="text-2xl font-bold mb-6">🌐 网站介绍</h2>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="about.intro.title">🌐 网站介绍</h2>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.intro.p1">
                         OpenPlay Games 是一个专注于收录和展示 GitHub 开源 HTML5 游戏的平台。我们的使命是让更多人发现和享受优质的开源游戏作品，同时也为开源开发者提供展示作品的窗口。
                     </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.intro.p2">
                         本站收录的所有游戏均来自 GitHub 开源社区，遵循相应的开源协议（MIT、BSD、Apache-2.0 等）。我们坚持只收录有明确开源许可证的项目，尊重每一位开发者的劳动成果。
                     </p>
-                    <p class="text-gray-300 leading-relaxed">
+                    <p class="text-gray-300 leading-relaxed" data-i18n="about.intro.p3">
                         无论你是想找一款经典游戏放松心情，还是想学习 HTML5 游戏开发的源码，这里都能满足你的需求。
                     </p>
                 </div>
@@ -86,20 +90,20 @@
 
             <!-- 开源声明 -->
             <div>
-                <h2 class="text-2xl font-bold mb-6">📜 开源声明</h2>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="about.opensource.title">📜 开源声明</h2>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.opensource.p1">
                         OpenPlay Games 本身也是一个开源项目。本站的源代码托管在 GitHub 上，欢迎任何人查看、学习和贡献。
                     </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.opensource.p2">
                         本站收录的每个游戏页面都明确标注了：
                     </p>
                     <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
-                        <li>原作者信息（Author）</li>
-                        <li>开源协议（License）</li>
-                        <li>原项目 GitHub 地址</li>
+                        <li data-i18n="about.opensource.item1">原作者信息（Author）</li>
+                        <li data-i18n="about.opensource.item2">开源协议（License）</li>
+                        <li data-i18n="about.opensource.item3">原项目 GitHub 地址</li>
                     </ul>
-                    <p class="text-gray-300 leading-relaxed">
+                    <p class="text-gray-300 leading-relaxed" data-i18n="about.opensource.p3">
                         所有游戏的版权归原作者所有。本站仅作收录和展示，不主张任何游戏内容的版权。
                     </p>
                 </div>
@@ -107,40 +111,40 @@
 
             <!-- DMCA -->
             <div id="dmca">
-                <h2 class="text-2xl font-bold mb-6">⚖️ DMCA 版权声明</h2>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="about.dmca.title">⚖️ DMCA 版权声明</h2>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.dmca.p1">
                         我们尊重知识产权。如果您是某个游戏的原作者，认为本站收录您的作品侵犯了您的权益，请通过以下方式联系我们。
                     </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.dmca.p2">
                         我们承诺在收到有效的版权投诉后，将在 48 小时内移除相关内容。
                     </p>
-                    <p class="text-gray-300 leading-relaxed">
+                    <p class="text-gray-300 leading-relaxed" data-i18n="about.dmca.p3">
                         联系我们时请提供：
                     </p>
                     <ul class="list-disc list-inside text-gray-300 space-y-2 mt-2">
-                        <li>您的姓名和联系方式</li>
-                        <li>被侵权作品的详细描述</li>
-                        <li>该作品在本站的具体页面链接</li>
-                        <li>您是版权所有者或授权代表的声明</li>
+                        <li data-i18n="about.dmca.item1">您的姓名和联系方式</li>
+                        <li data-i18n="about.dmca.item2">被侵权作品的详细描述</li>
+                        <li data-i18n="about.dmca.item3">该作品在本站的具体页面链接</li>
+                        <li data-i18n="about.dmca.item4">您是版权所有者或授权代表的声明</li>
                     </ul>
                 </div>
             </div>
 
             <!-- 隐私政策 -->
             <div id="privacy">
-                <h2 class="text-2xl font-bold mb-6">🔒 隐私政策</h2>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="about.privacy.title">🔒 隐私政策</h2>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.privacy.p1">
                         本站非常重视您的隐私。我们承诺：
                     </p>
                     <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
-                        <li>本站不收集用户的个人信息</li>
-                        <li>本站不使用追踪脚本或分析工具</li>
-                        <li>本站不设置 Cookie（除非未来接入广告后由广告平台设置）</li>
-                        <li>本站所有游戏均在本地运行，不会上传任何用户数据</li>
+                        <li data-i18n="about.privacy.item1">本站不收集用户的个人信息</li>
+                        <li data-i18n="about.privacy.item2">本站不使用追踪脚本或分析工具</li>
+                        <li data-i18n="about.privacy.item3">本站不设置 Cookie（除非未来接入广告后由广告平台设置）</li>
+                        <li data-i18n="about.privacy.item4">本站所有游戏均在本地运行，不会上传任何用户数据</li>
                     </ul>
-                    <p class="text-gray-300 leading-relaxed">
+                    <p class="text-gray-300 leading-relaxed" data-i18n="about.privacy.p2">
                         如果未来接入 Google AdSense 广告，Google 可能会使用 Cookie 来提供个性化广告。届时我们会更新本政策。
                     </p>
                 </div>
@@ -148,18 +152,18 @@
 
             <!-- 联系方式 -->
             <div>
-                <h2 class="text-2xl font-bold mb-6">📧 联系我们</h2>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="about.contact.title">📧 联系我们</h2>
                 <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                    <p class="text-gray-300 leading-relaxed mb-4">
+                    <p class="text-gray-300 leading-relaxed mb-4" data-i18n="about.contact.p1">
                         如有任何问题、建议或版权相关事宜，请通过以下方式联系我们：
                     </p>
                     <div class="space-y-3">
                         <p class="text-gray-300">
-                            <span class="text-gray-400">邮箱：</span>
+                            <span class="text-gray-400" data-i18n="about.contact.email">邮箱：</span>
                             <a href="mailto:zhuhua.jyf@gmail.com" class="text-indigo-400 hover:underline">zhuhua.jyf@gmail.com</a>
                         </p>
                         <p class="text-gray-300">
-                            <span class="text-gray-400">GitHub：</span>
+                            <span class="text-gray-400" data-i18n="about.contact.github">GitHub：</span>
                             <a href="https://github.com/zhuhua100/openplay-games" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">github.com/zhuhua100/openplay-games</a>
                         </p>
                     </div>
@@ -178,34 +182,35 @@
                         <span class="text-2xl">🎮</span>
                         <span class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">OpenPlay Games</span>
                     </div>
-                    <p class="text-gray-400 text-sm">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
+                    <p class="text-gray-400 text-sm" data-i18n="footer.desc">一个开源 HTML5 小游戏发现平台。所有游戏均来自 GitHub 开源项目，遵循相应开源协议。</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.quicklinks">快速链接</h3>
                     <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="/" class="hover:text-indigo-400 transition">首页</a></li>
-                        <li><a href="/about.html" class="hover:text-indigo-400 transition">关于我们</a></li>
+                        <li><a href="/" data-i18n="footer.home" class="hover:text-indigo-400 transition">首页</a></li>
+                        <li><a href="/about.html" data-i18n="footer.about" class="hover:text-indigo-400 transition">关于我们</a></li>
                         <li><a href="/about.html#dmca" class="hover:text-indigo-400 transition">DMCA</a></li>
-                        <li><a href="/about.html#privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
+                        <li><a href="/about.html#privacy" data-i18n="footer.privacy" class="hover:text-indigo-400 transition">隐私政策</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">游戏分类</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-i18n="footer.categories">游戏分类</h3>
                     <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="/categories/puzzle.html" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
-                        <li><a href="/categories/arcade.html" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
-                        <li><a href="/categories/relax.html" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
-                        <li><a href="/categories/strategy.html" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
-                        <li><a href="/categories/retro.html" class="hover:text-indigo-400 transition">复古 Retro</a></li>
+                        <li><a href="/categories/puzzle.html" data-i18n="nav.puzzle" class="hover:text-indigo-400 transition">益智 Puzzle</a></li>
+                        <li><a href="/categories/arcade.html" data-i18n="nav.arcade" class="hover:text-indigo-400 transition">街机 Arcade</a></li>
+                        <li><a href="/categories/relax.html" data-i18n="nav.relax" class="hover:text-indigo-400 transition">休闲 Relax</a></li>
+                        <li><a href="/categories/strategy.html" data-i18n="nav.strategy" class="hover:text-indigo-400 transition">策略 Strategy</a></li>
+                        <li><a href="/categories/retro.html" data-i18n="nav.retro" class="hover:text-indigo-400 transition">复古 Retro</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
+                <p data-i18n="footer.copyright">&copy; 2026 OpenPlay Games. 本站为开源项目，游戏版权归原作者所有。</p>
             </div>
         </div>
     </footer>
 
+    <script src="/js/i18n.js"></script>
     <script>
         // 移动端菜单
         document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
