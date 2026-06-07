@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+        .game-container { text-align: center; }
+        canvas { border: 2px solid #38bdf8; background: #0f0c29; border-radius: 8px; }
+        .info { margin-top: 20px; color: #fff; }
+        .info p { font-size: 18px; }
+        .info span { color: #38bdf8; font-weight: bold; }
+        .controls { margin-top: 15px; color: #94a3b8; font-size: 14px; }
+        button { background: #38bdf8; color: #000; border: none; padding: 10px 30px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        button:hover { background: #0ea5e9; }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+        <div class="info">
+            <p>得分: <span id="score">0</span></p>
+        </div>
+        <div class="controls">按空格键/点击屏幕 跳跃</div>
+        <button onclick="startGame()">重新开始</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+
+        const GRAVITY = 0.5, JUMP = -8, PIPE_WIDTH = 60, PIPE_GAP = 180;
+        let bird, pipes, score, gameOver, gameStarted, frameCount;
+
+        function startGame() {
+            bird = { x: 80, y: 250, vy: 0, size: 16 };
+            pipes = [];
+            score = 0; gameOver = false; gameStarted = false; frameCount = 0;
+            scoreEl.textContent = '0';
+        }
+
+        function addPipe() {
+            const minH = 80, maxH = 400;
+            const topH = Math.floor(Math.random() * (maxH - minH) + minH);
+            pipes.push({ x: 400, topH: topH, passed: false });
+        }
+
+        function update() {
+            if (gameOver || !gameStarted) return;
+            frameCount++;
+            // 重力
+            bird.vy += GRAVITY;
+            bird.y += bird.vy;
+            // 生成管道
+            if (frameCount % 90 === 0) addPipe();
+            // 移动管道
+            for (let i = pipes.length - 1; i >= 0; i--) {
+                pipes[i].x -= 3;
+                if (pipes[i].x < -PIPE_WIDTH) { pipes.splice(i, 1); continue; }
+                // 计分
+                if (!pipes[i].passed && pipes[i].x + PIPE_WIDTH < bird.x) {
+                    pipes[i].passed = true;
+                    score++;
+                    scoreEl.textContent = score;
+                }
+                // 碰撞检测
+                const bx = bird.x - bird.size/2, by = bird.y - bird.size/2;
+                const px = pipes[i].x, pTop = pipes[i].topH, pBottom = pipes[i].topH + PIPE_GAP;
+                if (bx < px + PIPE_WIDTH && bx + bird.size > px) {
+                    if (by < pTop || by + bird.size > pBottom) { gameOver = true; }
+                }
+            }
+            // 上下边界
+            if (bird.y < 0 || bird.y > 600) gameOver = true;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // 背景装饰
+            ctx.fillStyle = 'rgba(56,189,248,0.05)';
+            for (let i = 0; i < 5; i++) {
+                ctx.fillRect(i * 100 + (frameCount * 0.5) % 100, 500, 2, 100);
+            }
+            // 管道
+            ctx.fillStyle = '#22c55e';
+            pipes.forEach(p => {
+                ctx.fillRect(p.x, 0, PIPE_WIDTH, p.topH);
+                ctx.fillRect(p.x, p.topH + PIPE_GAP, PIPE_WIDTH, 600 - p.topH - PIPE_GAP);
+                ctx.fillStyle = '#16a34a';
+                ctx.fillRect(p.x - 4, p.topH - 20, PIPE_WIDTH + 8, 20);
+                ctx.fillRect(p.x - 4, p.topH + PIPE_GAP, PIPE_WIDTH + 8, 20);
+                ctx.fillStyle = '#22c55e';
+            });
+            // 鸟
+            ctx.fillStyle = '#fbbf24';
+            ctx.beginPath();
+            ctx.arc(bird.x, bird.y, bird.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#f97316';
+            ctx.beginPath();
+            ctx.arc(bird.x + 6, bird.y - 4, 4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#000';
+            ctx.beginPath();
+            ctx.arc(bird.x + 8, bird.y - 5, 2, 0, Math.PI * 2);
+            ctx.fill();
+            // 翅膀
+            ctx.fillStyle = '#f59e0b';
+            ctx.beginPath();
+            ctx.ellipse(bird.x - 8, bird.y + 2, 8, 4, 0, 0, Math.PI * 2);
+            ctx.fill();
+            // 游戏结束
+            if (gameOver) {
+                ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = '30px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('游戏结束', 200, 260);
+                ctx.font = '16px Arial';
+                ctx.fillText('得分: ' + score, 200, 300);
+            } else if (!gameStarted) {
+                ctx.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = '20px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('按空格键开始', 200, 300);
+            }
+        }
+
+        function jump() {
+            if (gameOver) { startGame(); return; }
+            if (!gameStarted) { gameStarted = true; }
+            bird.vy = JUMP;
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === ' ') { e.preventDefault(); jump(); } });
+        canvas.addEventListener('click', jump);
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+        startGame();
+        gameLoop();
+    </script>
+</body>
+</html>

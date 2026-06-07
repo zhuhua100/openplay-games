@@ -16,17 +16,20 @@
 
 ### ✅ 阶段一：基础设施搭建
 - [x] 已有 GitHub 账号
-- [ ] 注册 Cloudflare 账号
-- [ ] 创建 GitHub 仓库 `openplay-games`
-- [ ] 本地项目初始化
+- [ ] 注册 Cloudflare 账号（下一步）
+- [ ] 创建 GitHub 仓库 `openplay-games`（下一步）
+- [x] 本地项目初始化 ✅
 
-### ⬜ 阶段二：AI 生成网站骨架
-- [ ] 首页（Hero + 导航 + 游戏卡片 + 分类栏 + 搜索框）
-- [ ] 游戏详情页模板（iframe + 介绍 + 操作说明 + 作者信息）
-- [ ] 分类页模板（Puzzle / Arcade / Relax / Strategy / Retro）
-- [ ] 关于页
-- [ ] 404 页面
-- [ ] sitemap.xml + robots.txt
+### ✅ 阶段二：AI 生成网站骨架（已完成 ✅）
+- [x] 首页（Hero + 导航 + 游戏卡片 + 分类栏 + 搜索框）
+- [x] 游戏详情页模板（iframe + 介绍 + 操作说明 + 作者信息）
+- [x] 分类页模板（Puzzle / Arcade / Relax / Strategy / Retro）
+- [x] 关于页（含开源声明、DMCA、隐私政策）
+- [x] 404 页面
+- [x] sitemap.xml + robots.txt
+- [x] Cloudflare Pages 配置（_headers）
+- [x] Git 仓库初始化
+
 
 ### ⬜ 阶段三：部署上线
 - [ ] 推送代码到 GitHub

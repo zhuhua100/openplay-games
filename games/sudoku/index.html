@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数独 Sudoku</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+        .game-container { text-align: center; }
+        canvas { border: 2px solid #06b6d4; background: #0f0c29; border-radius: 8px; cursor: pointer; }
+        .info { margin-top: 20px; color: #fff; }
+        .info p { font-size: 18px; }
+        .info span { color: #22d3ee; font-weight: bold; }
+        .controls { margin-top: 15px; color: #94a3b8; font-size: 14px; }
+        button { background: #06b6d4; color: #fff; border: none; padding: 10px 30px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #0891b2; }
+        .num-pad { margin-top: 10px; display: flex; justify-content: center; gap: 5px; }
+        .num-pad button { width: 40px; height: 40px; padding: 0; font-size: 18px; background: #334155; }
+        .num-pad button:hover { background: #475569; }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="450" height="450"></canvas>
+        <div class="info">
+            <p>状态: <span id="status">游戏中</span></p>
+        </div>
+        <div class="num-pad" id="numPad">
+            <button onclick="selectNumber(1)">1</button>
+            <button onclick="selectNumber(2)">2</button>
+            <button onclick="selectNumber(3)">3</button>
+            <button onclick="selectNumber(4)">4</button>
+            <button onclick="selectNumber(5)">5</button>
+            <button onclick="selectNumber(6)">6</button>
+            <button onclick="selectNumber(7)">7</button>
+            <button onclick="selectNumber(8)">8</button>
+            <button onclick="selectNumber(9)">9</button>
+            <button onclick="selectNumber(0)" style="background:#ef4444;">✕</button>
+        </div>
+        <button onclick="startGame()" style="margin-top:10px;">新游戏</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const statusEl = document.getElementById('status');
+
+        const CELL = 50, SIZE = 9;
+        let board = [], solution = [], fixed = [], selectedNum = 0;
+        let selectedCell = null, gameWon = false;
+
+        function generateSudoku() {
+            const b = Array.from({length: 9}, () => Array(9).fill(0));
+            solveSudoku(b);
+            solution = b.map(row => [...row]);
+            const puzzle = b.map(row => [...row]);
+            let count = 40;
+            while (count > 0) {
+                const r = Math.floor(Math.random() * 9);
+                const c = Math.floor(Math.random() * 9);
+                if (puzzle[r][c] !== 0) { puzzle[r][c] = 0; count--; }
+            }
+            return puzzle;
+        }
+
+        function solveSudoku(b) {
+            for (let r = 0; r < 9; r++) {
+                for (let c = 0; c < 9; c++) {
+                    if (b[r][c] === 0) {
+                        const nums = shuffle([1,2,3,4,5,6,7,8,9]);
+                        for (const n of nums) {
+                            if (isValid(b, r, c, n)) {
+                                b[r][c] = n;
+                                if (solveSudoku(b)) return true;
+                                b[r][c] = 0;
+                            }
+                        }
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function isValid(b, row, col, num) {
+            for (let i = 0; i < 9; i++) {
+                if (b[row][i] === num) return false;
+                if (b[i][col] === num) return false;
+            }
+            const br = Math.floor(row/3)*3, bc = Math.floor(col/3)*3;
+            for (let r = br; r < br+3; r++) for (let c = bc; c < bc+3; c++) if (b[r][c] === num) return false;
+            return true;
+        }
+
+        function shuffle(arr) {
+            for (let i = arr.length-1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i+1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function startGame() {
+            board = generateSudoku();
+            fixed = board.map(row => row.map(c => c !== 0));
+            selectedNum = 0; selectedCell = null; gameWon = false;
+            statusEl.textContent = '游戏中';
+            draw();
+        }
+
+        function selectNumber(n) {
+            selectedNum = n;
+            if (selectedCell && !gameWon) {
+                const {r, c} = selectedCell;
+                if (!fixed[r][c]) {
+                    board[r][c] = n;
+                    checkWin();
+                    draw();
+                }
+            }
+        }
+
+        function checkWin() {
+            for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) if (board[r][c] !== solution[r][c]) return;
+            gameWon = true;
+            statusEl.textContent = '🎉 恭喜完成！';
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let r = 0; r < 9; r++) {
+                for (let c = 0; c < 9; c++) {
+                    const x = c * CELL, y = r * CELL;
+                    ctx.fillStyle = '#1e293b';
+                    if (selectedCell && selectedCell.r === r && selectedCell.c === c) ctx.fillStyle = '#1e3a5f';
+                    else if (fixed[r][c]) ctx.fillStyle = '#0f172a';
+                    ctx.fillRect(x, y, CELL, CELL);
+                    ctx.strokeStyle = '#475569';
+                    ctx.strokeRect(x, y, CELL, CELL);
+                    if (board[r][c] !== 0) {
+                        ctx.fillStyle = fixed[r][c] ? '#94a3b8' : '#22d3ee';
+                        ctx.font = 'bold 22px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText(board[r][c], x + CELL/2, y + CELL/2);
+                    }
+                }
+            }
+            // 3x3 粗线
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 3;
+            for (let i = 0; i <= 9; i += 3) {
+                ctx.beginPath(); ctx.moveTo(i * CELL, 0); ctx.lineTo(i * CELL, 450); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, i * CELL); ctx.lineTo(450, i * CELL); ctx.stroke();
+            }
+            ctx.lineWidth = 1;
+            if (gameWon) {
+                ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = '30px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('🎉 恭喜完成！', 225, 225);
+            }
+        }
+
+        canvas.addEventListener('click', e => {
+            if (gameWon) return;
+            const rect = canvas.getBoundingClientRect();
+            const c = Math.floor((e.clientX - rect.left) / CELL);
+            const r = Math.floor((e.clientY - rect.top) / CELL);
+            if (r >= 0 && r < 9 && c >= 0 && c < 9) {
+                selectedCell = {r, c};
+                if (selectedNum > 0 && !fixed[r][c]) {
+                    board[r][c] = selectedNum;
+                    checkWin();
+                }
+                draw();
+            }
+        });
+
+        startGame();
+    </script>
+</body>
+</html>

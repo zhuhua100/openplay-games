@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推箱子 Sokoban</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+        .game-container { text-align: center; }
+        canvas { border: 2px solid #8b5cf6; background: #0f0c29; border-radius: 8px; }
+        .info { margin-top: 20px; color: #fff; }
+        .info p { margin: 5px 0; font-size: 18px; }
+        .info span { color: #a78bfa; font-weight: bold; }
+        .controls { margin-top: 15px; color: #94a3b8; font-size: 14px; }
+        button { background: #8b5cf6; color: #fff; border: none; padding: 10px 30px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #7c3aed; }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div class="info">
+            <p>步数: <span id="moves">0</span></p>
+        </div>
+        <div class="controls">方向键移动 | 把箱子推到目标点 🎯</div>
+        <button onclick="startGame()">重新开始</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const movesEl = document.getElementById('moves');
+
+        const CELL = 40;
+        // 0=空地, 1=墙, 2=目标, 3=箱子, 4=玩家, 5=箱子在目标上, 6=玩家在目标上
+        const level = [
+            [1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,1],
+            [1,0,0,0,0,0,0,0,0,1],
+            [1,0,0,0,0,0,0,0,0,1],
+            [1,0,0,0,3,3,0,0,0,1],
+            [1,0,0,0,0,4,0,0,0,1],
+            [1,0,0,0,0,0,0,0,0,1],
+            [1,0,0,0,2,2,0,0,0,1],
+            [1,0,0,0,0,0,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1]
+        ];
+        let board = [], playerX, playerY, moves = 0, gameWon = false;
+
+        function startGame() {
+            board = level.map(row => [...row]);
+            moves = 0; gameWon = false;
+            movesEl.textContent = '0';
+            for (let r = 0; r < board.length; r++) {
+                for (let c = 0; c < board[r].length; c++) {
+                    if (board[r][c] === 4) { playerX = c; playerY = r; }
+                }
+            }
+            draw();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let r = 0; r < board.length; r++) {
+                for (let c = 0; c < board[r].length; c++) {
+                    const x = c * CELL, y = r * CELL;
+                    const cell = board[r][c];
+                    if (cell === 1) {
+                        ctx.fillStyle = '#334155';
+                        ctx.fillRect(x, y, CELL, CELL);
+                        ctx.strokeStyle = '#475569';
+                        ctx.strokeRect(x, y, CELL, CELL);
+                    } else if (cell === 2 || cell === 5) {
+                        ctx.fillStyle = '#1e293b';
+                        ctx.fillRect(x, y, CELL, CELL);
+                        ctx.fillStyle = '#fbbf24';
+                        ctx.beginPath();
+                        ctx.arc(x + CELL/2, y + CELL/2, 8, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else {
+                        ctx.fillStyle = '#1e293b';
+                        ctx.fillRect(x, y, CELL, CELL);
+                    }
+                    if (cell === 3 || cell === 5) {
+                        ctx.fillStyle = '#f59e0b';
+                        ctx.fillRect(x + 4, y + 4, CELL - 8, CELL - 8);
+                        ctx.strokeStyle = '#d97706';
+                        ctx.strokeRect(x + 4, y + 4, CELL - 8, CELL - 8);
+                    }
+                    if (cell === 4 || cell === 6) {
+                        ctx.fillStyle = '#8b5cf6';
+                        ctx.beginPath();
+                        ctx.arc(x + CELL/2, y + CELL/2, 14, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#fff';
+                        ctx.beginPath();
+                        ctx.arc(x + CELL/2, y + CELL/2, 6, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+            if (gameWon) {
+                ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = '30px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('🎉 恭喜通关！', 200, 200);
+            }
+        }
+
+        function movePlayer(dx, dy) {
+            if (gameWon) return;
+            const nx = playerX + dx, ny = playerY + dy;
+            if (board[ny][nx] === 1) return;
+            if (board[ny][nx] === 3 || board[ny][nx] === 5) {
+                const bx = nx + dx, by = ny + dy;
+                if (board[by][bx] === 1 || board[by][bx] === 3 || board[by][bx] === 5) return;
+                board[by][bx] = board[by][bx] === 2 ? 5 : 3;
+            }
+            const wasOnTarget = board[playerY][playerX] === 6;
+            board[playerY][playerX] = wasOnTarget ? 2 : 0;
+            const isTarget = board[ny][nx] === 2 || board[ny][nx] === 5;
+            playerX = nx; playerY = ny;
+            board[playerY][playerX] = isTarget ? 6 : 4;
+            moves++;
+            movesEl.textContent = moves;
+            checkWin();
+            draw();
+        }
+
+        function checkWin() {
+            gameWon = true;
+            for (let r = 0; r < board.length; r++) {
+                for (let c = 0; c < board[r].length; c++) {
+                    if (board[r][c] === 3) { gameWon = false; return; }
+                }
+            }
+        }
+
+        document.addEventListener('keydown', e => {
+            switch(e.key) {
+                case 'ArrowUp': movePlayer(0, -1); break;
+                case 'ArrowDown': movePlayer(0, 1); break;
+                case 'ArrowLeft': movePlayer(-1, 0); break;
+                case 'ArrowRight': movePlayer(1, 0); break;
+            }
+        });
+
+        startGame();
+    </script>
+</body>
+</html>

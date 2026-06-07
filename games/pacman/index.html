@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吃豆人 Pacman</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+        .game-container { text-align: center; }
+        canvas { border: 2px solid #facc15; background: #0f0c29; border-radius: 8px; }
+        .info { margin-top: 20px; color: #fff; }
+        .info p { font-size: 18px; }
+        .info span { color: #facc15; font-weight: bold; }
+        .controls { margin-top: 15px; color: #94a3b8; font-size: 14px; }
+        button { background: #facc15; color: #000; border: none; padding: 10px 30px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        button:hover { background: #eab308; }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="420" height="420"></canvas>
+        <div class="info">
+            <p>得分: <span id="score">0</span></p>
+        </div>
+        <div class="controls">方向键控制移动 | 吃掉所有豆子过关</div>
+        <button onclick="startGame()">重新开始</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+
+        const CELL = 20, COLS = 21, ROWS = 21;
+        const maze = [
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,1],
+            [1,2,1,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,1,2,1],
+            [1,2,1,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,1,2,1],
+            [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+            [1,2,1,1,1,2,1,2,1,1,1,1,1,2,1,2,1,1,1,2,1],
+            [1,2,2,2,2,2,1,2,2,2,1,2,2,2,1,2,2,2,2,2,1],
+            [1,1,1,1,1,2,1,1,1,0,1,0,1,1,1,2,1,1,1,1,1],
+            [0,0,0,0,1,2,1,0,0,0,0,0,0,0,1,2,1,0,0,0,0],
+            [1,1,1,1,1,2,1,0,1,1,0,1,1,0,1,2,1,1,1,1,1],
+            [0,0,0,0,0,2,0,0,1,0,0,0,1,0,0,2,0,0,0,0,0],
+            [1,1,1,1,1,2,1,0,1,1,1,1,1,0,1,2,1,1,1,1,1],
+            [0,0,0,0,1,2,1,0,0,0,0,0,0,0,1,2,1,0,0,0,0],
+            [1,1,1,1,1,2,1,0,1,1,1,1,1,0,1,2,1,1,1,1,1],
+            [1,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,1],
+            [1,2,1,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,1,2,1],
+            [1,2,2,2,1,2,2,2,2,2,0,2,2,2,2,2,1,2,2,2,1],
+            [1,1,1,2,1,2,1,2,1,1,1,1,1,2,1,2,1,2,1,1,1],
+            [1,2,2,2,2,2,1,2,2,2,1,2,2,2,1,2,2,2,2,2,1],
+            [1,2,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,1,1,2,1],
+            [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ];
+        let board = [], pacman, score = 0, gameOver = false, gameWon = false;
+        let direction = 'right', nextDirection = 'right', mouthAngle = 0;
+
+        function startGame() {
+            board = maze.map(row => [...row]);
+            pacman = { x: 10, y: 15 };
+            score = 0; gameOver = false; gameWon = false;
+            direction = 'right'; nextDirection = 'right';
+            scoreEl.textContent = '0';
+        }
+
+        function update() {
+            if (gameOver || gameWon) return;
+            direction = nextDirection;
+            let dx = 0, dy = 0;
+            switch(direction) {
+                case 'right': dx = 1; break;
+                case 'left': dx = -1; break;
+                case 'up': dy = -1; break;
+                case 'down': dy = 1; break;
+            }
+            const nx = pacman.x + dx, ny = pacman.y + dy;
+            if (board[ny] && board[ny][nx] !== 1 && board[ny][nx] !== undefined) {
+                pacman.x = nx; pacman.y = ny;
+                if (board[ny][nx] === 2) { score += 10; scoreEl.textContent = score; }
+                board[ny][nx] = 0;
+            }
+            mouthAngle = (mouthAngle + 0.1) % (Math.PI * 2);
+            checkWin();
+        }
+
+        function checkWin() {
+            let dots = 0;
+            for (let r = 0; r < board.length; r++) for (let c = 0; c < board[r].length; c++) if (board[r][c] === 2) dots++;
+            if (dots === 0) gameWon = true;
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    const x = c * CELL, y = r * CELL;
+                    if (board[r][c] === 1) {
+                        ctx.fillStyle = '#1e3a5f';
+                        ctx.fillRect(x, y, CELL, CELL);
+                        ctx.strokeStyle = '#2d5a8e';
+                        ctx.strokeRect(x, y, CELL, CELL);
+                    } else if (board[r][c] === 2) {
+                        ctx.fillStyle = '#fbbf24';
+                        ctx.beginPath();
+                        ctx.arc(x + CELL/2, y + CELL/2, 3, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+            // 吃豆人
+            ctx.fillStyle = '#facc15';
+            ctx.beginPath();
+            const angle = Math.sin(mouthAngle) * 0.3 + 0.3;
+            ctx.arc(pacman.x * CELL + CELL/2, pacman.y * CELL + CELL/2, CELL/2 - 2, angle, Math.PI * 2 - angle);
+            ctx.lineTo(pacman.x * CELL + CELL/2, pacman.y * CELL + CELL/2);
+            ctx.fill();
+            if (gameOver) {
+                ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = '30px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('游戏结束', 210, 200);
+            } else if (gameWon) {
+                ctx.fillStyle = 'rgba(0,0,0,0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                ctx.font = '30px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('🎉 你赢了！', 210, 200);
+            }
+        }
+
+        document.addEventListener('keydown', e => {
+            switch(e.key) {
+                case 'ArrowUp': nextDirection = 'up'; break;
+                case 'ArrowDown': nextDirection = 'down'; break;
+                case 'ArrowLeft': nextDirection = 'left'; break;
+                case 'ArrowRight': nextDirection = 'right'; break;
+            }
+        });
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+        startGame();
+        gameLoop();
+    </script>
+</body>
+</html>
